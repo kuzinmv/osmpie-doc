@@ -1,6 +1,6 @@
 #Содержание
 
-1. Начинаем
+1. [Начинаем](./getting-started.md)
 2. [Как замапить идеальный перекресток ](./perfect.junction.md)
 3. Предложение новых тэгов
     - [connect:lanes](./way.tags.connect:lanes.md)
