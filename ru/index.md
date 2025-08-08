@@ -1,16 +1,17 @@
 #Содержание
 
 1. [Начинаем](./getting-started.md)
-2. [Как замапить идеальный перекресток ](./perfect.junction.md)
-3. Предложение новых тэгов
+2. [Порядок работы и описание окон и форм](./workflow.and.forms.md)
+3. [Как замапить идеальный перекресток ](./perfect.junction.md)
+4. Предложение новых тэгов
     - [connect:lanes](./way.tags.connect:lanes.md)
     - [junction:shape](./node.tags.junction:shape.md)
     - [junction:radius](./node.tags.junction:radius.md)
     - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
     - [crossing:corner](./node.tags.crossing:corner.md) 
-4. Часто задаваемые вопросы
-5. Какой тэг на что влияет
-6. Типичные ошибки и почему они происходят
+5. Часто задаваемые вопросы
+6. Какой тэг на что влияет
+7. Типичные ошибки и почему они происходят
     - [Пропала разметка пешеходного перехода](./examples/crossing-error.md)
 
 
