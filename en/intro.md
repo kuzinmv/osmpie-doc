@@ -8,7 +8,7 @@ OSMPIE comprises two principal components that work in synergy to address this c
 
 2. **Specialized Editor/Viewer**: A purpose-built interface designed for rapid and intuitive mapping of roads and intersections within the OpenStreetMap ecosystem.
 
-![OSMPIE Overview](./img/osmpie-img1.png)
+![OSMPIE Overview](osmpie-doc/ru/img/osmpie-img1.png)
 
 ---
 
