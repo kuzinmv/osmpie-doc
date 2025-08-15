@@ -1,36 +1,51 @@
-## OSMPIE - OSM Perfect Intersection's Editor
 
-At higher zoom levels, the human eye finds significantly greater visual satisfaction in observing representations that authentically resemble actual roadways rather than mere orange and yellow stripes. Contemporary maps frequently display intricate nearby objects such as [trees](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree), [bicycle parking facilities](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbicycle_parking), [dropped kerbs](https://wiki.openstreetmap.org/wiki/Key:kerb) at crossings, [manholes](https://wiki.openstreetmap.org/wiki/Key:manhole), and [benches](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench). Paradoxically, complex infrastructural elements such as roads and intersections are represented merely as one or two colored lines. This fundamental disparity in representation quality demands immediate rectification.
+## OSMPIE — OSM Perfect Intersections Editor
 
-OSMPIE comprises two principal components that work in synergy to address this challenge:
+At high zoom levels, we want to see real roads, not “orange and yellow ribbons.” In OpenStreetMap, you can find carefully drawn [trees](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree), [bicycle parking facilities](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbicycle_parking), [dropped kerbs](https://wiki.openstreetmap.org/wiki/Key:kerb) at crossings, [manholes](https://wiki.openstreetmap.org/wiki/Key:manhole), and [benches](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench) — but a complex object like an intersection is often just a couple of colored lines.  
+OSMPIE is here to fix that!  
 
-1. **Road Rendering Engine**: This sophisticated system transforms OSM road objects (attributed ways, nodes, and relations) into a comprehensive new set of geographic objects that maintain both topological and geometrical relationships with their original OSM counterparts.
+### What OSMPIE consists of
+- **Road rendering engine** — takes OSM objects (`way`, `node`, `relation`), builds a topologically and geometrically linked set of new geo-objects. The result is not just lines, but a detailed model with traffic lanes, stop lines, conflict zones, and markings.  
+- **Specialized editor/viewer** — a tool for quick and convenient road and intersection mapping in OSM. Supports WYSIWYG editing: change a tag, instantly see how geometry updates.  
 
-2. **Specialized Editor/Viewer**: A purpose-built interface designed for rapid and intuitive mapping of roads and intersections within the OpenStreetMap ecosystem.
+### Why it matters
+Road mapping is not for the faint-hearted. It requires attention to detail and skill in working with tags, including unofficial or experimental ones. **OSMPIE helps** by:
+- visually validating tags — if something’s wrong, it’s visible immediately;  
+- allowing you to share a link to edits for review before uploading to OSM;  
+- making it easy to export data to GIS formats (GeoJSON, etc.).  
+
+The result — fewer guesses and long chat threads, more accurate data on the map.  
+And of course, a bit of joy in the process: it’s nice when an intersection in OSM looks like an intersection, not just a “colorful X made of two lines.”
 
 ![OSMPIE Overview](../ru/img/osmpie-img1.png)
 
 ---
 
-## Prerequisites and Technical Challenges
+## Background and Challenges
 
-Drawing from extensive experience in constructing and operating road network models, our development team recognized that implementing graph expansion functionality and generating new connections that reflect consistent network topology relative to both source data and ground truth represents one of the most critical technical challenges.
+Years of experience working with road network models taught us a simple truth: if you want the picture on the screen to reflect the reality “on the ground,” you must start with logic, not looks. First comes **topology**, then **geometry**.
 
-> *Topology precedes geometry in all implementations.*
+The main challenge was to implement a **graph unfolding** function and generate new connections that maintain a consistent topology with respect to both the original OSM data and the real-world layout.
 
-The primary objective involved constructing a comprehensive road network graph wherein each traffic lane possesses its own centerline representation. The secondary challenge required addressing connectivity issues at intersections. Only upon successful resolution of these topological foundations could geometric transformations and constructions be effectively implemented.
+1. **Step one – graph construction.** Each traffic lane gets its own centerline. This provides the foundation for an accurate topological model of the network.
+2. **Step two – intersection connectivity.** This stage ensures correct lane connections at junctions so that traffic flow logic is consistent.
+3. **Step three – geometry.** Only after the topology is complete do we move on to geometric transformations: drawing intersection shapes, lanes, markings, and other details.
 
-![Network Graph Construction](./img/osmpie-img2.png)
+The “structure first, picture later” approach prevents many common mistakes where a map looks nice but would be confusing or impractical to navigate in real life.
+
+
+![Network Graph Construction](../ru/img/osmpie-img2.png)
 
 ---
 
 ## Motivation and Design Philosophy
+## Motivation
 
-Road mapping, particularly for complex intersections, presents significant challenges that demand highly developed spatial visualization skills from cartographers. While existing tools provide valuable visualization assistance, our objective transcends current capabilities: achieving the perfect intersection model and its accurate digital representation.
+Mapping roads — and especially complex intersections — is no easy task. A cartographer needs not only knowledge of OSM tagging, but also strong spatial imagination. Existing tools certainly help with visualization, but often they only provide an “approximate resemblance.”
 
-The disparity between detailed representation of minor objects and oversimplified road infrastructure visualization motivated the development of OSMPIE as a comprehensive solution for professional-grade road mapping.
+**Our goal** is to create the *perfect intersection* (more precisely, its accurate and logically consistent model), ensuring that every element on the map is not just visually appealing, but also **topologically correct**.
 
-![Perfect Intersection Visualization](./img/osmpie-img3.png)
+![Perfect Intersection Visualization](../ru/img/osmpie-img3.png)
 
 ---
 
