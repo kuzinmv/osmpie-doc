@@ -1,8 +1,8 @@
 ## OSMPIE — Редактор идеальных перекрёстков OpenStreetMap
 
-В OpenStreetMap на максимальном увеличении встречаются тщательно прорисованные [деревья](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree), [велопарковки](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbicycle_parking), [пониженные бордюры](https://wiki.openstreetmap.org/wiki/Key:kerb) на переходах, [люки](https://wiki.openstreetmap.org/wiki/Key:manhole) и [скамейки](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench). При этом такой сложный объект, как перекрёсток, зачастую упрощен до пересечения пары цветных линий. Такая недостоверность делает невозможным решение прикладных задач, связанных с дорожной инфраструктурой. Чтобы восстановить реальную топологию перекрестка, требуются невероятные терпение и изворотливость.
+В **OpenStreetMap** на максимальном увеличении встречаются тщательно прорисованные [деревья](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree), [велопарковки](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbicycle_parking), [пониженные бордюры](https://wiki.openstreetmap.org/wiki/Key:kerb) на переходах, [люки](https://wiki.openstreetmap.org/wiki/Key:manhole) и [скамейки](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench). При этом такой сложный объект, как перекрёсток, зачастую упрощен до пары цветных линий. Такая недостоверность делает невозможным решение прикладных задач, связанных с дорожной инфраструктурой. Чтобы восстановить реальную топологию перекрестка, требуются невероятные терпение и изворотливость.
 
-OSMPIE создан для решения этой проблемы!
+**OSMPIE** создан для решения этой проблемы!
 
 ## Архитектура системы OSMPIE
 
