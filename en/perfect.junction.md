@@ -94,7 +94,7 @@ placement = dist:-2.5 // Centerline offset 2.5 meters left
 
 **Directional Split Placement:**
 ```
-placement:forward = dist:5
+placement:forward = dist:-5
 placement:backward = dist:-5
 ```
 
