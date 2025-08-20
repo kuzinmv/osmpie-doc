@@ -106,7 +106,7 @@ placement = dist:-2.5 // то же самое но влево.
 
 - . предложение ввести суфиксы forward и backward и учет их отдельно друг от друга - раздвоение осевой
 ```
-placement:forward = dist:5
+placement:forward = dist:-5
 placement:backward = dist:-5
 ```
 
