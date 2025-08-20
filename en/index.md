@@ -1,4 +1,4 @@
-## Содержание
+## Content
 
 0. [Introduction](./intro.md)
 1. [Let's start](./getting-started.md)

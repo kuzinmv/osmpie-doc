@@ -77,12 +77,12 @@ From a functional modeling perspective, an intersection must possess and interco
 
 | OSM Objects | Lane Centerlines and Connections |
 |:------------|:--------------------------------|
-|![OSM Objects](./img/junction.points-img0.png)|![Centerlines](./img/junction.points-img2.png)|
+|![OSM Objects](./../ru/img/junction.points-img0.png)|![Centerlines](./../ru/img/junction.points-img2.png)|
 |(node, way, relation)|(points, edges, connections)|
 
 | Intersection Area | Points and Routes |
 |:------------------|:------------------|
-|![Intersection Area](./img/junction.points-img3.png)|![Points and Routes](./img/junction.points-img1.png)|
+|![Intersection Area](./../ru/img/junction.points-img3.png)|![Points and Routes](./../ru/img/junction.points-img1.png)|
 |`area:highway=* + junction=yes` ?|Multiple maneuvers represented as route lines and their intersections|
 
 ---
@@ -154,7 +154,7 @@ The OSMPIE renderer functions as a sophisticated visual validator. When the rend
 - **Areal Objects**: Multi-polygon intersection representations and road polygons (see [area:highway](https://wiki.openstreetmap.org/wiki/Key:area:highway))
 - **Road Marking Objects**: Comprehensive road marking elements as polygons, lines, and points linked to corresponding graph edges
 
-![Output Data Visualization](./img/osmpie-img4.png)
+![Output Data Visualization](./../ru/img/osmpie-img4.png)
 
 ---
 

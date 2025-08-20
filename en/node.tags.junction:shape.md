@@ -30,17 +30,17 @@ An intermediate configuration between rectangle and oblique geometries. Intersec
 
 | Example 1 | Example 2 |
 |:----------|:----------|
-|![Rectangle Junction](./img/junction:shape-img2.png)|![Oblique Junction](./img/junction:shape-img4.png)|
+|![Rectangle Junction](./../ru/img/junction:shape-img2.png)|![Oblique Junction](./../ru/img/junction:shape-img4.png)|
 |Despite the pedestrian crossing's angular approach to the street, yellow nodes utilize `junction:shape = rectangle`. The angle between stop lines and zebra stripes approximates 90 degrees.|Yellow nodes utilize `junction:shape = oblique` as stop lines are drawn parallel (or nearly parallel) to the intersecting roadway.|
 
 | Example 3 | Example 4 |
 |:----------|:----------|
-|![Staggered Junction](./img/junction:shape-img5.png)|![Comparison Junction](./img/junction:shape-img7.png)|
+|![Staggered Junction](./../ru/img/junction:shape-img5.png)|![Comparison Junction](./../ru/img/junction:shape-img7.png)|
 |Most pedestrian crossing intersection points utilize `staggered` configuration due to stop lines positioned at varying distances from crossings. Distance regulation employs [junction:radius](./node.tags.junction:radius.md) with `:lanes`, `:start,:end`, and `:forward,:backward` suffixes for bidirectional ways.|Excellent single-location example demonstrating clear distinction between `junction:shape = oblique` and `junction:shape = rectangle` configurations.|
 
 | Example 5 | Example 6 |
 |:----------|:----------|
-|![Mixed Junction](./img/junction:shape-img3.png)||
+|![Mixed Junction](./../ru/img/junction:shape-img3.png)||
 |Yellow nodes utilize `junction:shape = rectangle` while red nodes employ `junction:shape = oblique` or `junction:shape = staggered`||
 
 ## Professional Application Context

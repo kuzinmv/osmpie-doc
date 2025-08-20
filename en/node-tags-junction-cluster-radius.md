@@ -60,17 +60,17 @@ Consider a complex intersection with four separate conflict zones. Nodes where `
 
 The left half shows nodes and ways, while the right half displays the intersection model where each node's radius appears as a hexagon. All hexagons are grouped based on overlap (union) criteria.
 
-![Complex intersection example](./img/junction:cluster:radius-img1.png)
+![Complex intersection example](./../ru/img/junction:cluster:radius-img1.png)
 
 With this combination of `junction:cluster:radius` values, we obtain four distinct "Intersection Complexes," each with its own conflict zone. Consequently, separate stop lines should exist for conflict resolution at each complex.
 
-![Four intersection complexes](./img/junction:cluster:radius-img4.png)
+![Four intersection complexes](./../ru/img/junction:cluster:radius-img4.png)
 
 ### Network Topology Visualization
 
 To eliminate ambiguity about whether this represents one or multiple intersections, here's the network topology where each intersection is marked with a blue circle (see [junction:radius](./node.tags.junction:radius.md) tag). Each cluster contains 3-4 way intersections (automotive and pedestrian with different radii).
 
-![Network topology](./img/junction:cluster:radius-img5.png)
+![Network topology](./../ru/img/junction:cluster:radius-img5.png)
 
 ## Modified Configuration Example
 
@@ -78,7 +78,7 @@ When increasing `junction:cluster:radius` values from 12 meters to 23 meters whe
 
 This radius configuration is artificially incorrect since pedestrian crossings remain present, contradicting the ring-road interpretation.
 
-![Single horseshoe intersection](./img/junction:cluster:radius-img3.png)
+![Single horseshoe intersection](./../ru/img/junction:cluster:radius-img3.png)
 
 ## Implementation Guidelines
 

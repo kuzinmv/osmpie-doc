@@ -38,7 +38,7 @@ This button toggles between property viewing and editing modes.
 
 The property editor utilizes **YAML** formatting with all associated [advantages](https://en.wikipedia.org/wiki/YAML) and considerations inherent to this structured data format. The interface includes autocomplete functionality to expedite routine property correction tasks, though tag schemas remain incomplete in current implementation.
 
-![Property Editor Interface](./img/screen4.png)
+![Property Editor Interface](./../ru/img/screen4.png)
 
 **Deactivation**: Toggle the property viewing/editing mode by clicking the same button again.
 
@@ -69,7 +69,7 @@ The property editor utilizes **YAML** formatting with all associated [advantages
 | `8. Step build road markings` | Linear road marking generation |
 | `8.1 Step build intersection markings` | Specialized intersection marking generation |
 
-![Renderer Options Interface](./img/screen5.png)
+![Renderer Options Interface](./../ru/img/screen5.png)
 
 ---
 
@@ -87,7 +87,7 @@ The changeset viewer provides a specialized window for examining current edit st
 
 **Differential Analysis**: Object selection in the lower window section highlights changes relative to initial state loaded from Overpass API, providing Git-like differential visualization.
 
-![Changeset Viewer Interface](./img/screen6.png)
+![Changeset Viewer Interface](./../ru/img/screen6.png)
 
 ---
 
@@ -107,7 +107,7 @@ When way or node deletion (or splitting operations) occurs, the editor offers au
 4. **Post-Repair State**: Following relation repairs, editing becomes restricted and the editor transitions to read-only mode
 5. **Editing Restoration**: Return to editing mode using the **Cancel relation fix** button
 
-![Relation Repair Interface](./img/screen7.png)
+![Relation Repair Interface](./../ru/img/screen7.png)
 
 ---
 
@@ -124,7 +124,7 @@ When confident that all modifications are complete and referential integrity is 
 
 **Congratulations**: Successfully contributing a perfected intersection to the OpenStreetMap database.
 
-![OSM Submission Interface](./img/screen8.png)
+![OSM Submission Interface](./../ru/img/screen8.png)
 
 ---
 
@@ -136,7 +136,7 @@ Right-panel objects remain selectable for property examination. Selecting cluste
 
 **Validation Benefits**: This visualization system enables rapid assessment of lane structure accuracy and connectivity validation for each intersection approach, providing comprehensive quality assurance for complex intersection modeling.
 
-![Micro-Route Visualization](./img/screen11.png)
+![Micro-Route Visualization](./../ru/img/screen11.png)
 
 ---
 
@@ -160,7 +160,7 @@ Read-only mode eliminates modification capabilities and activates under specific
 - Before/after display mode for OSM data structure examination in left panel
 - **Use changes** toggle in right panel for rendering comparison purposes
 
-![Read-Only Mode Interface](./img/screen9.png)
+![Read-Only Mode Interface](./../ru/img/screen9.png)
 
 ---
 

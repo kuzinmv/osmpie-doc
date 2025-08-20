@@ -37,7 +37,7 @@ The following examples demonstrate proper implementation, with the blue circle i
 
 **Issue:** The conflict zone cannot be properly described by a circle of the specified radius due to road width and lane configuration. This value is incorrectly defined.
 
-![Example 1 - Incorrect radius](./img/junction:radius-img1.png)
+![Example 1 - Incorrect radius](./../ru/img/junction:radius-img1.png)
 
 ### Example 2: Optimal Radius Configuration  
 
@@ -45,7 +45,7 @@ The following examples demonstrate proper implementation, with the blue circle i
 
 **Result:** Correctly implemented. Stop lines and other intersection entry points align precisely with the circular boundary, creating an accurate representation of the conflict zone.
 
-![Example 2 - Optimal radius](./img/junction:radius-img2.png)
+![Example 2 - Optimal radius](./../ru/img/junction:radius-img2.png)
 
 ### Example 3: Oversized Radius with External Influences
 
@@ -53,7 +53,7 @@ The following examples demonstrate proper implementation, with the blue circle i
 
 **Analysis:** When other objects (nodes or ways) exist within the specified radius, they begin to modify and influence the conflict zone geometry. The radius describes only the maximum possible area of the conflict zone, not necessarily its actual shape.
 
-![Example 3 - Oversized radius](./img/junction:radius-img3.png)
+![Example 3 - Oversized radius](./../ru/img/junction:radius-img3.png)
 
 ### Example 4: Multiple Junction Interactions
 
@@ -61,7 +61,7 @@ The following examples demonstrate proper implementation, with the blue circle i
 
 **Observation:** Proximity between nodes creates mutual influence on conflict zones. The intersection geometry becomes more complex, with U-turns between parallel paths exhibiting different curvature radii and geometric characteristics.
 
-![Example 4 - Multiple junctions](./img/junction:radius-img4.png)
+![Example 4 - Multiple junctions](./../ru/img/junction:radius-img4.png)
 
 ### Example 5: Mixed Intersection Types with Traffic Signals
 
@@ -82,7 +82,7 @@ highway = traffic_signals
 
 **Key Principle:** The radius value determines the width of the conflict zone. Adjacent nodes limit the influence of the `junction:radius` tag for their associated ways. When radii of two neighboring `node[junction = yes]` objects intersect, the intermediate edge shrinks to minimal length and positions proportionally based on the ratio of these neighboring radii.
 
-![Example 5 - Mixed intersections](./img/junction:radius-img5.png)
+![Example 5 - Mixed intersections](./../ru/img/junction:radius-img5.png)
 
 ## Advanced Lane-Specific Configuration
 
@@ -117,7 +117,7 @@ For basic `junction:radius`, the center point uses the node's coordinates. Howev
 
 This example demonstrates creating a stepped stop line configuration at traffic signals, showcasing the tag's precision capabilities.
 
-![Example 6 - Staggered stop line](./img/junction:radius-img7.png)
+![Example 6 - Staggered stop line](./../ru/img/junction:radius-img7.png)
 
 **Way1 Configuration (highlighted in blue):**
 ```
@@ -144,7 +144,7 @@ The deliberately small radius combined with the staggered shape type (see [junct
 
 In debug mode, connection segment lengths in this micro-intersection not only form a stepped pattern but also vary in length. This variation results from lane-specific overrides applied to way2:
 
-![Example 6 - Debug view](./img/junction:radius-img8.png)
+![Example 6 - Debug view](./../ru/img/junction:radius-img8.png)
 
 **Way2 Configuration:**
 ```

@@ -3,7 +3,7 @@
 ## 1. Initiating Your OSMPIE Editor Session
 
 ### Initial Interface Overview
-![OSMPIE Start Screen](./img/screen1.png)
+![OSMPIE Start Screen](./../ru/img/screen1.png)
 
 To commence your work with OSMPIE, authentication through OpenStreetMap is required—a process that is rapid, secure, and eliminates the necessity for creating separate account credentials.
 
@@ -46,7 +46,7 @@ Upon successful authentication, you will be automatically redirected to the main
 
 Utilize the map zoom controls to navigate to your desired intersection for editing purposes. The left-side interface includes a search button that opens a location query form, accepting keyword inputs such as "Nevsky Prospekt," "Tyumen," or other geographic identifiers.
 
-![Location Selection Interface](./img/screen2.png)
+![Location Selection Interface](./../ru/img/screen2.png)
 
 ### Area Loading Methods
 
@@ -70,7 +70,7 @@ The primary editor window employs a sophisticated dual-panel design architecture
 
 **Critical Note:** Rendering processes are not automatic. To update the right panel visualization, users must activate the **"Refresh view + Save changes"** button located in the upper-left section of the right panel interface.
 
-![OSMPIE Editor Interface](./img/screen3.png)
+![OSMPIE Editor Interface](./../ru/img/screen3.png)
 
 ### Encouraging Experimental Workflow
 
@@ -87,7 +87,7 @@ Confidently experiment with various modifications including:
 
 **Local Data Processing:** All changes remain within your browser's local storage, providing complete safety for experimental editing approaches.
 
-![Experimental Editing Interface](./img/screen3a.png)
+![Experimental Editing Interface](./../ru/img/screen3a.png)
 
 ### Professional Workflow Integration
 
