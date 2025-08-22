@@ -11,7 +11,7 @@
     - [junction:cluster:radius](./node-tags-junction-cluster-radius.md)
     - [crossing:corner](./node.tags.crossing:corner.md) 
 5. FAQ
-6. Tags impact on
+6. [Examples](./examples/examples.md) 
 7. Typical errors and why do they come
     - [the pedestrian crossing markings have disappeared](./examples/crossing-error.md)
 
