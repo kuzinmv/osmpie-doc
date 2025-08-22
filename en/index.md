@@ -8,7 +8,7 @@
     - [connect:lanes](./way.tags.connect:lanes.md)
     - [junction:shape](./node.tags.junction:shape.md)
     - [junction:radius](./node.tags.junction:radius.md)
-    - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+    - [junction:cluster:radius](./node-tags-junction-cluster-radius.md)
     - [crossing:corner](./node.tags.crossing:corner.md) 
 5. FAQ
 6. Tags impact on

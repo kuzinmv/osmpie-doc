@@ -1,250 +1,156 @@
-# Creating Perfect Intersections in OpenStreetMap: A Comprehensive Tagging Guide
-> Essential tags and professional recommendations
+# connect - key for specifying lane connectivity at intersections
 
-To construct an ideal intersection using OSMPIE, the following essential components are required:
+## Syntax
+```
+way.tags {
+   connect(:lanes(:forward|backward)): number;number;...||
+}
+```
 
-[Lane Configuration](#1-lane-configuration) *
-[Turn Movements and Connectivity](#2-turn-movements-and-connectivity) *
-[Lane Width and Centerline Positioning](#3-lane-width-and-centerline-positioning) *
-[Intersection Types and New junction:* Tags](#4-intersections-and-crossroads) *
-[Parking, Stops, and Cycling Infrastructure](#5-parking-stops-cycling-infrastructure-and-trams) *
-[Auxiliary Renderer Control Tags](#6-auxiliary-renderer-control-tags) *
-[Road Markings (In Development)](#7-road-markings-coming-soon)
+### Applies to objects
 
----
+This tag applies only to objects of type `way` and can be extended with two widely used suffixes: `:lanes` and `:forward|backward`
 
-## 1. Lane Configuration
+### Reasons for introduction
+Currently, OSM has a method for precisely specifying lane connectivity using relations: [relation:connectivity](https://wiki.openstreetmap.org/wiki/Relation:connectivity)
 
-Accurate road representation requires precise specification of lane quantities and directional flow. Essential tags include:
+The main disadvantages of this method are:
 
-```osm
-way
-    oneway = yes|no
-    lanes = 5
+1. It is very cumbersome to create a relation or even several for one way (from)
+2. Relations are very fragile and easily broken, requiring constant integrity checks
+3. For exits from one way in different directions (multiple destination ways), multiple relations may be needed - it cannot be done with a single object
+4. Increased requirements for the editor and mapper experience
+5. Introduced entity violates Occam's razor; turns (`turn:lanes`) were implemented without relations.
+
+To solve the problem of unambiguous input/editing of lane connectivity at intersections, a simpler solution is needed, preferably a standard one.
+
+The existing approach with turns can be taken as a basis:
+
+```md
+way.tags:
     lanes:forward = 3
-    lanes:backward = 2
-    lanes:both_ways = 1
+    turn:lanes:forward = through|through;right|right
 ```
 
-**Critical Requirements:**
-- When tags are omitted, the renderer defaults to 2 lanes with bidirectional traffic flow
-- Additional tags for specialized lanes (public transit applications):
-  - [`lanes:psv`](https://wiki.openstreetmap.org/wiki/Key:lanes:psv)
-  - [`psv:lanes`](https://wiki.openstreetmap.org/wiki/Key:psv:lanes)
+Excellent, everyone understands it and it is widely used. For an object of type `way`, several tags with connected content are set. The number of lanes determines the number of sections into which the value of the `turn:lanes:forward` tag will be split. **From** each lane, we specify the turn direction.
 
----
+Can we inherit this approach but specify something that will address the target lane?
 
-## 2. Turn Movements and Connectivity
+For example, like this:
 
-Essential tags for turn movement control and lane connections:
-
-The [turn](https://wiki.openstreetmap.org/wiki/Key:turn) key represents one of the fundamental components for properly configured intersections and interchanges, utilized comprehensively throughout the system. Thorough familiarity with the associated documentation is essential.
-
-```osm
-way
-    turn:lanes
-    connect:lanes
-relation 
-    type = restriction
-    type = connectivity
+```md
+way.tags:
+    lanes:forward = 3
+    turn:lanes:forward = through|through;right|right
+    connect:lanes:forward = 0|1;2|3
 ```
 
-**Implementation Specifications:**
-By default, when turn movements are not specified, the system employs a fan-pattern scheme `left;through|...|through;right` based on lane quantity.
+The simplest solution in this situation is to use numerical indices. However, lanes can belong to different `way` objects that exit the intersection point. Therefore, it is necessary to somehow address them as well.
+Furthermore, a `way` can be two-way, so destination lanes on the `forward` side must be separated from those on the `backward` side.
 
-**Relation Types for Movement Control:**
-- **Restriction Relations**: `type = restriction` relations are supported by the renderer, currently without qualifying suffixes such as `restriction:hov`
-- **Connectivity Relations**: `type = connectivity` relations are not currently implemented. As an alternative for complex intersection connections, we propose utilizing the `connect:lanes` key instead of relations. [Detailed connect:lanes documentation](./way.tags.connect:lanes.md)
-
----
-
-## 3. Lane Width and Centerline Positioning
-
-Most tags specified in the street width documentation apply to the OSMPIE renderer:
-[Street Width Reference](https://wiki.openstreetmap.org/wiki/Key:width#Width_of_streets)
-Exception: The direct `width` tag, which specifies complete street width.
-
-```osm
-way
-    width:lanes
-    placement
-    placement:forward
-    placement:backward
-    placement = dist:[number]
-    placement = transition
+```md
+way.tags:
+    lanes:forward = 3
+    turn:lanes:forward = through|through;right|right
+    connect:lanes:forward = {way1.id}:backward:0|{way2.id}:backward:1;{way3.id}:backward:2|{way3.id}:forward:0
 ```
 
-**Professional Recommendations:**
+This looks terribly confusing and is probably even more complex than `relation[type=connectivity]`.
+Can we avoid all this complex addressing?
 
-The `placement` tag represents a de facto standard in OSM and is fully implemented in the renderer. This tag proves invaluable for lane mapping as it effectively addresses inaccuracies introduced by centerlines on roads with variable lane counts or at diverging junctions.
+Yes, by establishing one global agreement.
 
-**Recommended Study**: Comprehensive examination of this critical tag's applications, particularly the `placement=transition` value. [Placement Documentation](https://wiki.openstreetmap.org/wiki/Proposal:Placement)
+## Agreement:
 
-### OSMPIE Placement Extensions
-
-For precise mapping applications, standard placement values possess limitations as they reference lane edges or centers, significantly restricting practical implementation.
-
-OSMPIE proposes two minor extensions to centerline offset methodology:
-
-**Distance-Based Placement:**
 ```
-placement = dist:2.5  // Centerline offset 2.5 meters right for one-way paths
-placement = dist:-2.5 // Centerline offset 2.5 meters left
+For all connected/intersecting `way` objects at a single `node`, 
+a common index (order) for all outgoing lanes from this `node` for all `way`s 
+is determined by the angle between the line with coordinates from the `node` to the starting point of the lane,
+and the line drawn from the `node` to the north (N) in a clockwise direction.
+
 ```
 
-**Directional Split Placement:**
-```
-placement:forward = dist:5
-placement:backward = dist:-5
-```
+In simple terms, clockwise from the 12 o'clock position, the starting points of lanes after exiting the intersection are numbered in order around the `node` of this intersection. Only lanes used for movement and accounted for in the `lanes`, `lanes:forward`, `lanes:backward` tags of the respective ways are numbered.
 
-This enables cross-lane positioning with direction reversals (left-hand to right-hand traffic patterns), applicable to short intersection segments where vehicles pass starboard-to-starboard during left turns.
+**Example:**
 
-**Additional Applications:**
-- Minor spatial separation around mid-carriageway obstacles
-- Continued single-way object mapping for complex scenarios
-- Enhanced geometric accuracy for specialized intersection configurations
+Let's consider this with a simple example, see Figure 1.
+On the left is an intersection with a U-turn, and the way for which we will specify lane connectivity is highlighted in blue. Directions of movement are indicated by red arrows.
 
-[OSMPIE Placement Usage Examples](./examples/placement.md)
+| Ground               | Ways & lanes |
+| :---------------- | :------ |
+|![image info](./../ru/img/connect:lanes-img1.1.png) |![image info](./../ru/img/connect:lanes-img1.png) |
 
----
+On the right, the lane connectivity we want to attribute is shown. Let's assume a U-turn cannot be made from the extreme left lane (vehicle turning radius) but only from the middle lanes onto the highway.
 
-## 4. Intersections and Crossroads
+Draw a line from the node upwards to the north and also to each point of only the outgoing lanes. Incoming lanes for this node are not of interest to us.
+The value of the angle between the red arrow and the dashed line will determine the index or serial number of the lane exiting this node for addressing it.
 
-OSM intersection descriptions, like many mapping elements, exhibit considerable fragmentation and inconsistency. [See Key:junction](https://wiki.openstreetmap.org/wiki/Key:junction). Enhanced intersection preparation requires systematic organization of existing tags and strategic additions.
+The advantage of this approach is that with a constant number of lanes for all `way`s of this node, the order will be constant. Let's look at an example of what the tag would look like for this case.
 
-```osm
-node
-    junction = controlled|uncontrolled|inout|joint 
-    junction:shape = rectangle|oblique|staggered
-    junction:radius = 9
-    junction:cluster:radius = 15
-    crossing:corner = yes|no
-    
-way 
-    junction:radius:lanes:{direction}:{start|end} = ||1|9
-    connect:lanes = 0|1;2|3||
+```md
+way.tags:
+    lanes = 1
+    oneway = yes
+    turn:lanes = left;through
+    connect:lanes:forward = 0;2;3
 ```
 
-### Intersection Classification System
+>**Note:** We have implicitly introduced the concept of an intersection radius - the blue circle in the figure. See the tag `junction:radius` [junction:radius](./node.tags.junction:radius.md)
 
-Current systems utilize `junction=yes` and `junction=uncontrolled` tags. Renderer development necessitated comprehensive intersection classification with expanded categorization:
+### Purpose
+This tag is intended for more accurate mapping of connections at intersections, at complex junctions where the `turn:lanes` tag is insufficient. It can complement the `turn:lanes` tag to clarify maneuvers only for specific lanes. For example, here the connection is explicitly specified only for the third lane; the rest is determined by the `turn:lanes` tag.
 
-**Enhanced Classification:**
-* `junction = controlled` - Traffic signal-controlled intersection
-* `junction = uncontrolled` - Uncontrolled intersection/crossroad (current standard usage)
-* `junction = inout` - Intersection involving `way[highway=service]` - driveway/parking access
-* `junction = joint` - Intersection involving exactly 2 ways, shared node represents terminus of one and origin of another
-
-These values are computationally derivable from participating object keys and tags, typically requiring no explicit specification. However, explicit tagging proves beneficial in specific scenarios, such as signalized intersections involving parking and driveway exits `way[highway=service]`.
-
-**Automated Classification Logic:**
-* `junction = controlled` - Node belongs to 2+ ways with traffic signal tags: `(highway == traffic_signals || crossing == traffic_signals) == true`
-* `junction = uncontrolled` - Node belongs to 2+ ways without signal tags: `(highway == traffic_signals || crossing == traffic_signals) == false`
-* `junction = inout` - Node belongs to 2+ ways with at least one `way[highway=service]`
-* `junction = joint` - Intersection involves exactly 2 roadway ways (excluding `footway`, `tram`, `cycleway`)
-
-### Advanced Junction Tagging System
-
-For nodes explicitly or implicitly marked as junctions, four new keys enable precise intersection and crossroad rendering, plus two additional feature mapping keys:
-
-1. **`junction:shape`** - Intersection geometry (rectangle, parallelogram, or staggered). When unspecified, OSMPIE attempts automatic determination based on way intersection angles for 2 or 4-way intersections. Configurations with 5+ ways require explicit manual tagging.
-
-2. **`junction:radius`** - Conflict zone radius defining the circular area where vehicles interact.
-
-3. **`junction:radius:lanes`** - Conflict zone override for specific way objects, enabling stop line positioning adjustments per lane.
-
-4. **`junction:cluster:radius`** - Clustering radius for grouping intersection points into unified "traditional" intersections (intersection clusters in our terminology).
-
-5. **`crossing:corner = yes|no`** - Pedestrian crossing tag similar to `crossing:island` [crossing:island reference](https://wiki.openstreetmap.org/wiki/Key:crossing:island), indicating safety island presence. This tag identifies crossings positioned very close to carriageway edges, essentially connecting sidewalk corners, enabling more accurate intersection geometry generation.
-
-6. **`connect:lanes`** - Enhanced lane addressing for precise nodal connectivity specification as an alternative to relations. [relation[type=connectivity]](https://wiki.openstreetmap.org/wiki/Relation:connectivity)
-
-### Detailed Documentation References:
-- [junction:shape](./node.tags.junction:shape.md)
-- [junction:radius](./node.tags.junction:radius.md)
-- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-- [connect:lanes](./way.tags.connect:lanes.md)
-
----
-
-## 5. Parking, Stops, Cycling Infrastructure, and Trams
-
-OSMPIE's initial version incorporates partial support for parking and cycling infrastructure tags, specifically addressing their impact on carriageway width and road polygons. Location, width, and parking orientation (determining parking lane width) are considered.
-
-### Parking and Cycling Infrastructure
-
-```osm
-way
-    parking:{side} = lane|street_side
-    parking:{side}:orientation = number
-    parking:{side}:width = number
-    
-way   
-    cycleway:{side} = lane
-    cycleway:{side}:width = number    
-```
-[Parking Implementation Examples](./examples/parking.md)
-
-### Transit Stops
-
-Special attention focuses on bus stops. The `bus_bay` key is proposed for both ways and `highway = bus_stop` nodes, enabling proper bay rendering and associated markings. Stops tagged with `tram=yes` utilize perpendicular-to-lanes marking patterns.
-
-```osm
-node
-   highway = bus_stop + bus_bay = yes
-   highway = bus_stop + tram = yes 
+```md
+way.tags:
+    lanes = 3
+    oneway = yes
+    turn:lanes = left|through|slight_right;right
+    connect:lanes:forward = ||4;5
 ```
 
-[OSMPIE bus_bay=yes Examples](./examples/bus_bay.md)
+In the future, for automated processing tools or editing software, it will probably be possible to implement a converter from the `connect:lanes` tag to `relation[type=connectivity]` and vice versa - this seems a relatively simple task.
 
-### Implementation Considerations
+**Let's consider another example:**
 
-Vehicle path intersections with tram tracks and cycling infrastructure are ignored unless specifically tagged (e.g., `highway = traffic_signals`) as they don't require connectivity resolution. Including these intersections generates numerous small edges and distorts automotive lane geometric representation.
+![image info](./../ru/img/connect:lanes-img2.png)
 
----
+One of the intersections of a complex junction. 4 lanes with maneuvers indicated by blue arrows (left). It leads into a way also with 4 lanes. Obviously, if you do not use additional instructions (slight_right) and use only the indicated turns, then the entrance to the extreme right lane (3) will be without a connection. Explicitly adding `slight_right` distorts the lane driving sign - misleads the driver - so indicating it is impossible.
 
-## 6. Auxiliary Renderer Control Tags
-
-OSMPIE includes supplementary tags for renderer control, primarily utilized in exceptional circumstances:
-
-```osm
-    osmpie:{key} = any
-    osmpie:sparse = yes|no|number
-    osmpie:fill = yes|no|number
-    osmpie:usefull = yes|no
+```md
+way.tags:
+    lanes = 4
+    oneway = yes
+    //turn:lanes = through|through|through;slight_right;right|right <<-- wrong
+    turn:lanes = through|through|through;right|right
+    connect:lanes:forward = ||2;3;5|
 ```
 
-### Tag Specifications:
+**Fork Example:**
 
-* **`osmpie:{key} = any`** - Overrides any existing tag value. Example: [bridge intersection scenarios](https://www.openstreetmap.org/way/243947044#map=19/59.935411/30.326399). OSMPIE separates road polygon rendering by level for tunnels, interchanges, and over/under intersections. When intersections are bridge components or bridges exist within intersections, polygon construction becomes impossible. Direct level tag modification contradicts OSM rules. Override solution: `osmpie:level = 0 + level = 2`
+This tag will be extremely useful at intersections with wide carriageways (many lanes) and the presence of smooth forks into two or more roads. Consider the example of Taganskaya Square in Moscow.
 
-* **`osmpie:sparse = yes|no|number`** - OSMPIE implements proximity-based node removal for closely-spaced, untagged way points. This tag explicitly controls sparse processing for specific ways with defined limitations.
+| OSM Ways               | lanes connectivity |
+| :---------------- | :------ |
+|![image info](./../ru/img/connect:lanes-img5.1.png) |![image info](./../ru/img/connect:lanes-img5.2.png) |
 
-* **`osmpie:fill = yes|no|number`** - OSMPIE includes way point densification for lengthy segments lacking intermediate nodes. This tag explicitly controls fill processing for specific ways with defined parameters.
+A "chicken foot" type fork, immediately followed by an increase in the number of lanes, from two to three or four for different ways. Solving this with only turn tags is extremely difficult. Although they cannot be abandoned either, as they reflect the lane driving signs established by traffic rules (if they are present on/above the road).
 
-* **`osmpie:usefull = yes|no`** - `way[highway = service]` objects are typically filtered from final rendering. This tag designates specific ways for retention despite filtering rules.
+```
+way.tags:
+    lanes = 5
+    highway = primary,
+    oneway = yes,
+    connect:lanes = 0|1|2;3|4|5,
+    turn:lanes = left|left|through;right|right|right
+```
 
-[Detailed fill.sparse Examples](./examples/fill.sparse.md)
+It is difficult to correctly correlate the values of `turn:lanes` with the geometry of the maneuver in such cases. If we want to use `relation[type=connectivity]`, then for the first point we would have to create at least 3 of them.
 
----
+**Application Results:**
 
-## 7. Road Markings (Coming Soon)
+This approach, combined with tags like `placement`, `junction:radius`, `junction:shape`, and others, will allow for more accurate reflection of lane connectivity and maneuvers for navigation and will enable rendering road and intersection polygons, which can be important on wide highways and their nodes.
 
-OSMPIE's initial public release features non-customizable road markings generated comprehensively, potentially not reflecting local application conventions such as parking spaces or pedestrian crossings. Marking rendering indicates object existence, lane presence, and dimensional characteristics. Priority development focuses on rapid resolution of these limitations.
-
-### Standard Road Marking Tags
-
-Typical road marking indicators include `divider`, `turn:lanes=*`, `overtaking=*`, `change=*`, or `crossing:markings=*`. Road marking presence is specified using `lane_markings=*`. These tags combined with supplementary information such as `placement=*` or `width:lanes=*` provide sufficient road marking renderer control.
-
-**Reference Documentation:**
-- [Key:divider](https://wiki.openstreetmap.org/wiki/Key:divider)
-- [Key:change](https://wiki.openstreetmap.org/wiki/Key:change)
-- [Key:overtaking](https://wiki.openstreetmap.org/wiki/Key:overtaking)
-- [Key:crossing:markings](https://wiki.openstreetmap.org/wiki/Key:crossing:markings)
-- [Key:lane_markings](https://wiki.openstreetmap.org/wiki/Key:lane_markings)
-- [Tag:road_marking=solid_stop_line](https://wiki.openstreetmap.org/wiki/Tag:road_marking=solid_stop_line)
-
-### Future Development Considerations
-
-Special attention should be directed toward [Proposal:Road_marking_revision](https://wiki.openstreetmap.org/wiki/Proposal:Road_marking_revision), which we support 99%, with the exception that turn arrows and lane text should be designated as way objects. Potential point object applications with angle specification in attributes or way angle computation for node-containing ways, incorporating `direction = {forward|backward}` as currently implemented for [traffic signals](https://wiki.openstreetmap.org/wiki/Key:traffic_signals:direction).
+| Road view               | Road & intersection polygons |
+| :---------------- | :------ |
+|![image info](./../ru/img/connect:lanes-img5.3.png) |![image info](./../ru/img/connect:lanes-img5.4.png) |
