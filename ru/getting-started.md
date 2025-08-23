@@ -64,3 +64,6 @@ OSMPIE сделает запрос к [Overpass API](https://wiki.openstreetmap.
 ![image info](./img/screen3a.png)
 
 ## Рекомендуемые статьи
+
+1. [Порядок работы и описание окон и форм](./workflow.and.forms.md)
+2. [Как приготовить идеальный перекресток](./perfect.junction.md)
