@@ -18,7 +18,8 @@ Here we will collect various examples of corrected intersections, simple and com
 | [osmpie link](https://osmpie.org/app/editor?pos=-95.957922&pos=36.089777&zoom=19.85&tile=Esri+World&bakeId=1822b8af-5eb4-4b3e-8ddc-ffd548359e22) | [osmpie link](https://osmpie.org/app/editor?pos=13.441555&pos=52.481094&zoom=18.27&bakeId=b7811107-52fa-4549-97ac-d8ddc0cf3d0e&tile=Carto+Light) |
 
 
-| Placement matters (New York)   |   | 
+
+| Placement matters (New York)   | Turbo roundabout (placement: transition)  | 
 | :---------------- | :------ | 
-|![image info](./../../ru/examples/img/example-img7.png) ||
-|[osmpie link](https://osmpie.org/app/editor?bakeId=8d92e8c3-18d6-467a-a003-d3eaf9d3da4f&pos=-73.967593&pos=40.580403&zoom=20.02&tile=Esri+World)|  | 
+|![image info](./../../ru/examples/img/example-img7.png) | ![image info](./../../ru/examples/img/example-img8.png) |
+|[osmpie link](https://osmpie.org/app/editor?bakeId=8d92e8c3-18d6-467a-a003-d3eaf9d3da4f&pos=-73.967593&pos=40.580403&zoom=20.02&tile=Esri+World)| [osmpie link](https://osmpie.org/app/editor?bakeId=dde9a875-c8f5-4624-8801-d011f2fe08ee&pos=7.615127&pos=46.770597&zoom=19.42&tile=Esri+World) | 
