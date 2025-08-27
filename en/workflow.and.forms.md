@@ -151,6 +151,9 @@ Read-only mode eliminates modification capabilities and activates under specific
 
 ### Collaborative and Comparison Features
 
+
+![Share](./../ru/img/screen12.png)
+
 **Use Cases**:
 - Sharing work with other contributors for detailed discussion
 - Comparing multiple intersection variants across browser tabs
