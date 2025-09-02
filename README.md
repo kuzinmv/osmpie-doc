@@ -21,3 +21,4 @@ OSMPIE service documentation &amp; issues repo
  - [English](./en/index.md)
  
  
+![OSMPIE demo](./ru/img/osmpie_demo.gif)
