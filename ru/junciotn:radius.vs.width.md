@@ -69,3 +69,16 @@ and add the junction=yes tag.
 
 Точно так же, как и для ширины парковок, радиус пересечения зачастую не требует явного задания, потому что достаточно точно может быть выведен из ширины и количества полос участников пересечения. Однако это не всегда так, и встречаются моменты, где требуется явное задание этого тега с целью более точного соответствия действительности.
 
+## Ссылки
+Сама идея использования радиусов, для определения или эстимейта тех или иных геометрических характеристик или форм сильно не нова, 
+ее уже применяли в OSM.
+
+- [Парковки в Берлине](https://github.com/SupaplexOSM/street_parking.py?tab=readme-ov-file)
+
+| . | . | 
+| :------------------- | :------------------------ | 
+| ![image info](https://raw.githubusercontent.com/SupaplexOSM/street_parking.py/main/sample%20images/street%20parking%20lines.png) | ![image info](https://raw.githubusercontent.com/SupaplexOSM/street_parking.py/main/sample%20images/street%20parking%20points.png) |  
+
+
+...
+
