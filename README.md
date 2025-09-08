@@ -21,3 +21,4 @@ OSMPIE service documentation &amp; issues repo
  - [English](./en/index.md)
  
  
+![image info](./ru/img/junction-surface-skeleton.png)
