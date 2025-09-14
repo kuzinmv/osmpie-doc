@@ -1,4 +1,4 @@
-# Использование тегов width и junction:radius в OpenStreetMap: единство принципов описания геометрии
+# Сущностное сходство тегов width и junction:radius в OpenStreetMap
 
 Данная статья является ответом на вопрос
 ~~~
