@@ -84,38 +84,6 @@ node
 - Топологической связностью (`connect:lanes`)
 - Специфическими параметрами безопасности движения
 
-## Алгоритмическая реализация классификации
-
-### Автоматическое определение типов пересечений
-
-Все значения тега `junction` могут быть вычислены автоматически на основе анализа атрибутов связанных объектов:
-
-```python
-def classify_junction(node):
-    connected_ways = get_connected_ways(node)
-    
-    if len(connected_ways) < 2:
-        return None
-    
-    # Проверка на контролируемое пересечение
-    if (node.has_tag('highway', 'traffic_signals') or 
-        node.has_tag('crossing', 'traffic_signals')):
-        return 'controlled'
-    
-    # Проверка на сервисное пересечение
-    if any(way.has_tag('highway', 'service') for way in connected_ways):
-        return 'inout'
-    
-    # Проверка на соединение путей
-    road_ways = [w for w in connected_ways 
-                if w.get_tag('highway') not in ['footway', 'tram', 'cycleway']]
-    if len(road_ways) == 2:
-        return 'joint'
-    
-    # По умолчанию - неконтролируемое пересечение
-    return 'uncontrolled'
-```
-
 ## Практические применения классификации
 
 ### Преимущества систематизированного подхода
@@ -155,23 +123,6 @@ SELECT * FROM nodes WHERE tags->'junction' = 'controlled';
 - Суммарное количество полос движения: `total_lanes`
 - Тип пересечения: `junction_type`
 
-#### Базовая формула:
-```python
-def estimate_junction_radius(n_ways, total_lanes, junction_type):
-    base_radius = 3.0  # метры
-    way_factor = 1.2 ** (n_ways - 2)
-    lane_factor = 1.1 ** (total_lanes - 4)
-    
-    type_multipliers = {
-        'controlled': 1.3,
-        'uncontrolled': 1.0,
-        'inout': 0.8,
-        'joint': 0.6
-    }
-    
-    return base_radius * way_factor * lane_factor * type_multipliers[junction_type]
-```
-
 ### Калибровка и валидация
 
 Представленная формула получена эмпирическим путём и обеспечивает приемлемые результаты для типовых случаев. Для сложных транспортных узлов рекомендуется ручная корректировка параметров с использованием:
@@ -187,29 +138,6 @@ def estimate_junction_radius(n_ways, total_lanes, junction_type):
 2. **Автоматическая классификация**: Применение алгоритмов определения типов пересечений
 3. **Экспертная верификация**: Ручная проверка критически важных транспортных узлов
 4. **Постепенное внедрение**: Поэтапное применение новой классификации с мониторингом результатов
-
-### Контроль качества данных
-
-Рекомендуется внедрение автоматизированных систем контроля качества:
-
-```python
-def validate_junction_classification(node):
-    errors = []
-    
-    if node.has_tag('junction'):
-        connected_ways = get_connected_ways(node)
-        
-        if len(connected_ways) < 2:
-            errors.append("Junction tag on node with < 2 connected ways")
-        
-        declared_type = node.get_tag('junction')
-        computed_type = classify_junction(node)
-        
-        if declared_type != computed_type:
-            errors.append(f"Type mismatch: declared={declared_type}, computed={computed_type}")
-    
-    return errors
-```
 
 ## Перспективы развития
 
