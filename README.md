@@ -22,9 +22,9 @@ OSMPIE service documentation &amp; issues repo
  
  ---
  
- ##Anatomical atlas of city roads
+ ## Anatomical atlas of city roads
  
- A visual example of how OSMPIE builds the structure of roads and intersections. Using a small town as an example.
+ There is a visual example of how OSMPIE builds the structure of roads and intersections in the center of a small city.
  
  OSM ways -> OSMPIE Roads skeleton -> Roads surface + marking
  
