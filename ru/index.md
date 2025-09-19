@@ -11,8 +11,8 @@
     - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
     - [crossing:corner](./node.tags.crossing:corner.md) 
 5. Часто задаваемые вопросы
-6. Примеры разыне
+6. Примеры
     - Галлерея интересных работ - [избранное](./examples/examples.md) 
-    - почему положение оси важно - [placement = transition | dist:[number]](./examples/placement.md)
+    - Почему положение оси важно - [placement = transition | dist:[number]](./examples/placement.md)
 7. Типичные ошибки и почему они происходят
     - [Пропала разметка пешеходного перехода](./examples/crossing-error.md)
