@@ -1,9 +1,9 @@
 ## Содержание
 
 0. [Введение](./intro.md)
-1. [Начинаем](./getting-started.md)
-2. [Порядок работы и описание окон и форм](./workflow.and.forms.md)
-3. [Как замапить идеальный перекресток ](./perfect.junction.md)
+1. [Начинаем работать с OSMPIE](./getting-started.md)
+2. [Порядок работы, описание окон и форм](./workflow.and.forms.md)
+3. [Как "приготовить" идеальный перекресток ](./perfect.junction.md)
 4. Предложение новых тэгов
     - [connect:lanes](./way.tags.connect:lanes.md)
     - [junction:shape](./node.tags.junction:shape.md)
