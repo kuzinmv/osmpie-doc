@@ -1,6 +1,6 @@
-# Зачем OSMPIE вводит новые теги в OSM.
+## Зачем OSMPIE вводит новые теги в OSM
 
-## В OSM действуют 2 принципа в отношении используемых тегов:
+В OSM действуют 2 принципа в отношении используемых тегов:
 1.	Any tag you like.
 2.	Truth at the earth.
 
@@ -21,10 +21,12 @@ OSMPIE ставит своей целью отражать в OSM дорожну
 В большинстве случаев рендер рассчитывает необходимые теги автоматически, исходя из имеющихся параметров других объектов. 
 В отдельных случаях эти теги необходимо задавать явно.
 
-Познакомьтесь со статьями, которые описывают новые теги и их применение подробнее
+Познакомьтесь со статьями, которые описывают новые теги и их применение подробнее;
 
 - [junction:shape](./node.tags.junction:shape.md)
 - [junction:radius](./node.tags.junction:radius.md)
 - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
 - [connect:lanes](./way.tags.connect:lanes.md)
 - [crossing:corner](./node.tags.crossing:corner.md)
+
+Также рекомендуем ознакомиться с предлагаемыми способами использования тега [placement](../examples/placement.md)
