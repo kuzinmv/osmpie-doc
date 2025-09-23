@@ -153,5 +153,5 @@ way.tags = {
 
 ### Рекомендуемые статьи
 
-    - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-    - [crossing:corner](./node.tags.crossing:corner.md) 
+ - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+ - [crossing:corner](./node.tags.crossing:corner.md) 

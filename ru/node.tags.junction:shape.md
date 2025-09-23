@@ -51,5 +51,5 @@ node.tags {
 |В желтых точках значение тега будет `junction:shape = rectangle`, в красной используются значения `junction:shape = oblique` и `junction:shape = staggered`|| 
 
 ### Рекомендуемые статьи
-       - [junction:radius](./node.tags.junction:radius.md)
-       - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+- [junction:radius](./node.tags.junction:radius.md)
+- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)

@@ -161,10 +161,7 @@ way.tags:
 
 ## Рекомендуемые статьи
 
-Тег [junction:shape](./node.tags.junction:shape.md)
-
-Тег [junction:radius](./node.tags.junction:radius.md)
-
-Тег [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-
-Тег [crossing:corner](./node.tags.crossing:corner.md)
+- Тег [junction:shape](./node.tags.junction:shape.md)
+- Тег [junction:radius](./node.tags.junction:radius.md)
+- Тег [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+- Тег [crossing:corner](./node.tags.crossing:corner.md)

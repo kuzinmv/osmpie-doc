@@ -149,4 +149,8 @@ and add the junction=yes tag.
 
 Тег `junction:radius` ещё не включён в официальную документацию OSM, но он основан на тех же принципах, что и давно используемый `width`. Это естественное развитие идеологии упрощённого описания сложных геометрических объектов.
 
-См. подробную статью про [junction:radius](./node.tags.junction:radius.md).
+## Дополнительные ссылки
+
+- См. подробную статью про [junction:radius](./node.tags.junction:radius.md).
+- См. также [Key:diameter](https://wiki.openstreetmap.org/wiki/Key:diameter) 
+- [diameter=*](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree#Additional_tags)
