@@ -76,7 +76,7 @@
     *   `track` (обособленная велодорожка)
 *   **`cycleway:lane:width`**: Ширина велосипедной полосы.
 *   **`cycleway:lane:buffer`**: Буферная зона между велополосой и автодорогой.
-*   **`cycleway:lane:connect`**: Способ соединения велополос на перекрестке.
+
 
    **Документация:** [Key:cycleway](https://wiki.openstreetmap.org/wiki/Key:cycleway)
 
