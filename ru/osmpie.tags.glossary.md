@@ -182,3 +182,16 @@
 4. **Могут устанавливаться вручную** в OSM-данных или **автоматически** в процессе обработки
 
 
+## Рекомендуемые статьи
+
+Концепции, которые вводятся OSMPIE, и теги для их отображения
+
+[connect:lanes](./way.tags.connect:lanes.md)
+
+[junction:shape](./node.tags.junction:shape.md)
+
+[junction:radius](./node.tags.junction:radius.md)
+
+[junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+
+[crossing:corner](./node.tags.crossing:corner.md) 
