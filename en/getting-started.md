@@ -1,6 +1,6 @@
-# OSMPIE Editor Tutorial: Comprehensive Getting Started Guide
+# OSMPIE Tutorial: Comprehensive Getting Started Guide
 
-## 1. Initiating Your OSMPIE Editor Session
+## 1. Initiating Your OSMPIE Session
 
 ### Initial Interface Overview
 ![OSMPIE Start Screen](./../ru/img/screen1.png)
@@ -30,9 +30,7 @@ Click the **"Please, login in OSM to start"** button located at the top of the s
 
 Upon successful authentication, you will be automatically redirected to the main screen interface and may proceed with your mapping activities.
 
-### Accessibility Solutions for Russian Federation Users
-
-**If OSM Access is Restricted/Blocked in RF:**
+### If OSM Access is Restricted/Blocked in some countries
 
 1. Follow the comprehensive instructions available at [https://t.me/ruosm/850833](https://t.me/ruosm/850833)
 2. Virtual Private Network (VPN) solutions typically provide effective access restoration
@@ -100,3 +98,9 @@ The OSMPIE editor serves as both a learning platform for new cartographers and a
 - **Educational Value:** Enhanced understanding of road topology through visual representation
 
 This comprehensive interface design enables both novice and expert users to achieve professional-quality results while maintaining the flexibility to experiment and learn through hands-on interaction with complex intersection modeling scenarios.
+
+## Recommended Articles
+
+1. [Workflow and Window and Form Descriptions](./workflow.and.forms.md)
+2. [How to Prepare a Perfect Junction](./perfect.junction.md)
+
