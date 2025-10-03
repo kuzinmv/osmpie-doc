@@ -234,71 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", navbarScrollInit);
 });
 
-// ======= Swiper =======
-const swiperInit = () => {
-  var swiper = new Swiper(".testimonialSwiper", {
-    slidesPerView: 1,
-    speed: 700,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1.5,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 2.5,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 2.5,
-        spaceBetween: 30,
-      },
-    },
-    navigation: {
-      nextEl: ".custom-button-next",
-      prevEl: ".custom-button-prev",
-    },
-  });
-
-  const progressCircle = document.querySelector(".autoplay-progress svg");
-  const progressContent = document.querySelector(".autoplay-progress span");
-  if (progressCircle && progressContent ) {
-    var swiper2 = new Swiper(".sliderSwiper", {
-      slidesPerView: 1,
-      speed: 700,
-      spaceBetween: 0,
-      loop: true,
-      centeredSlides: true,
-      autoplay: {
-        delay: 7000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".custom-button-next",
-        prevEl: ".custom-button-prev",
-      },
-
-      on: {
-        autoplayTimeLeft(s, time, progress) {
-          progressCircle.style.setProperty("--progress", 1 - progress);
-          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-        }
-      }
-    });
-  }
-
-};
-
-document.addEventListener("DOMContentLoaded", swiperInit);
 
 // ======= Glightbox =======
 const glightBoxInit = () => {
@@ -385,22 +320,15 @@ const inlineSvgInit = () => {
 document.addEventListener("DOMContentLoaded", inlineSvgInit);
 
 // ======= AOS =======
-const aosInit = () => {
-  AOS.init({
-    duration: 800,
-    easing: 'slide',
-    once: true
-  });
-}
-document.addEventListener("DOMContentLoaded", aosInit);
+// const aosInit = () => {
+//   AOS.init({
+//     duration: 800,
+//     easing: 'slide',
+//     once: true
+//   });
+// }
+// document.addEventListener("DOMContentLoaded", aosInit);
 
-// ======= PureCounter =======
-const pureCounterInit = () => {
-  new PureCounter({
-    selector: ".purecounter",
-  });
-}
-document.addEventListener("DOMContentLoaded", pureCounterInit);
 
 // ======= Disable Click Navbar Dropdown =======
 const addHoverEvents = (dropdown) => {
