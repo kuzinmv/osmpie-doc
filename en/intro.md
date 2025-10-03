@@ -1,103 +1,130 @@
+# OSMPIE — Perfect OpenStreetMap Junction Editor
 
-## OSMPIE — OSM Perfect Intersections Editor
+In **OpenStreetMap**, at maximum zoom, you can find carefully drawn [trees](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree), [bicycle parking](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbicycle_parking), [lowered curbs](https://wiki.openstreetmap.org/wiki/Key:kerb) at crossings, [manholes](https://wiki.openstreetmap.org/wiki/Key:manhole), and [benches](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench). However, such a complex object as a junction is often simplified to a couple of colored lines. This lack of accuracy makes it impossible to solve practical tasks related to road infrastructure. Restoring the real topology of a junction requires incredible patience and ingenuity.
 
-At high zoom levels, we want to see real roads, not “orange and yellow ribbons.” In OpenStreetMap, you can find carefully drawn [trees](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree), [bicycle parking facilities](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbicycle_parking), [dropped kerbs](https://wiki.openstreetmap.org/wiki/Key:kerb) at crossings, [manholes](https://wiki.openstreetmap.org/wiki/Key:manhole), and [benches](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench) — but a complex object like an intersection is often just a couple of colored lines.  
-OSMPIE is here to fix that!  
+**OSMPIE** was created to solve this problem!
 
-### What OSMPIE consists of
-- **Road rendering engine** — takes OSM objects (`way`, `node`, `relation`), builds a topologically and geometrically linked set of new geo-objects. The result is not just lines, but a detailed model with traffic lanes, stop lines, conflict zones, and markings.  
-- **Specialized editor/viewer** — a tool for quick and convenient road and intersection mapping in OSM. Supports WYSIWYG editing: change a tag, instantly see how geometry updates.  
+## OSMPIE System Architecture
 
-### Why it matters
-Road mapping is not for the faint-hearted. It requires attention to detail and skill in working with tags, including unofficial or experimental ones. **OSMPIE helps** by:
-- visually validating tags — if something’s wrong, it’s visible immediately;  
-- allowing you to share a link to edits for review before uploading to OSM;  
-- making it easy to export data to GIS formats (GeoJSON, etc.).  
+PIE consists of two key components:
 
-The result — fewer guesses and long chat threads, more accurate data on the map.  
-And of course, a bit of joy in the process: it’s nice when an intersection in OSM looks like an intersection, not just a “colorful X made of two lines.”
+**Road Rendering Engine** — processes OSM objects (`way`, `node`, `relation`) and creates a topologically and geometrically connected system of new geo-objects. The result is a detailed model with traffic lanes, stop lines, conflict zones, and road markings.
+
+**Specialized Editor-Viewer** — a tool for quick and convenient mapping of roads and junctions in OSM. Supports WYSIWYG editing: change a tag — instantly see how the geometry updates.
+
+## Practical Significance of the Project
+
+**Accurate Road Model**
+
+OSMPIE is more than a rendering engine for area road objects. At its core is the construction of an accurate topological and object model of most elements of the road network. It generalizes multiple points in the junction logic, creating objects (entry and exit points from the junction, conflict points, approaches) necessary for engineering calculations at the junction and traffic management.
+
+**Advanced Navigation**
+
+Extended object modeling and improved visualization quality provide more accurate road navigation, as they offer not only basic data on the number of lanes and road signs, but also comprehensive information on turn models, junction geometry, road markings, and other detailed infrastructure elements.
+
+**OSM Enrichment**
+
+Objects obtained as a result of OSMPIE rendering (for example, road polygons, area:highway, area:highway=* + junction=yes, marking signs, refined turn tags turn:lanes for way[highway], polygons and markings of pedestrian crossings, and much more) can be saved to OSM.
+
+**Engineering Calculations, Modeling, v2x**
+
+Objects and data obtained as a result of rendering can be used in a wide range of ADAS MAP, MAPem V2X technologies, 3D road visualizations, traffic object design, micro-modeling, and traffic light control program development.
+
+
+**Data Analytics**
+
+How many junctions are in your city? How many of them are controlled and uncontrolled? How complex are the junctions? OSM does not provide data that allows obtaining accurate answers to these questions. OSMPIE simplifies finding answers to these and more complex queries. OSMPIE represents junctions as separate objects with all necessary relationships, such as the number of conflict points or intersections with tram lines.
 
 ![OSMPIE Overview](../ru/img/osmpie-img1.png)
 
----
+## Why Do I Need This? What's the Benefit?
 
-## Background and Challenges
+- Use osmpie for correct and accurate road mapping in OSM, osmpie will act as an assistant and validator
+- Send a link to a colleague for review before applying a changeset or for collaborative discussions.
+- Download all rendering results in GeoJSON or upload to your GIS (QGIS, for example), you can do it directly via API or direct link. For your research work or personal projects. Remember about ODBL.
+- You can obtain both a topological lane model with additional attributes for each lane, points and connections, and the final one — area-based with markings.
+- Fill OSM with current and accurate data. Let the map reflect reality in all necessary details.
 
-Years of experience working with road network models taught us a simple truth: if you want the picture on the screen to reflect the reality “on the ground,” you must start with logic, not looks. First comes **topology**, then **geometry**.
+## Convenient Functional Interface
 
-The main challenge was to implement a **graph unfolding** function and generate new connections that maintain a consistent topology with respect to both the original OSM data and the real-world layout.
+- **Visual tag validation** — if something is wrong, it's immediately visible
+- **Collaborative work** — ability to share a link to edits for review before uploading to OSM  
+- **Data export** — simple conversion to GIS formats (GeoJSON and others)
 
-1. **Step one – graph construction.** Each traffic lane gets its own centerline. This provides the foundation for an accurate topological model of the network.
-2. **Step two – intersection connectivity.** This stage ensures correct lane connections at junctions so that traffic flow logic is consistent.
-3. **Step three – geometry.** Only after the topology is complete do we move on to geometric transformations: drawing intersection shapes, lanes, markings, and other details.
+The result — fewer guesses and long discussions in chats, more accurate data on the map. 
 
-The “structure first, picture later” approach prevents many common mistakes where a map looks nice but would be confusing or impractical to navigate in real life.
 
+### Step-by-Step Mapping Methodology
+
+1. **First stage — graph construction.** Each traffic lane gets its own centerline. This provides the basis for an accurate topological network model.
+
+2. **Second stage — junction connectivity.** At this stage, correct connection of lanes at intersections is ensured so that the logic of traffic flows is consistent.
+
+3. **Third stage — geometry.** Only after completing the topology do we proceed to geometric transformations: drawing junction shapes, lanes, markings, and other details.
 
 ![Network Graph Construction](../ru/img/osmpie-img2.png)
-
 ---
 
-## Motivation and Design Philosophy
-## Motivation
+## Design Philosophy and Motivation
 
-Mapping roads — and especially complex intersections — is no easy task. A cartographer needs not only knowledge of OSM tagging, but also strong spatial imagination. Existing tools certainly help with visualization, but often they only provide an “approximate resemblance.”
+**Our approach** — topology first, then geometry
 
-**Our goal** is to create the *perfect intersection* (more precisely, its accurate and logically consistent model), ensuring that every element on the map is not just visually appealing, but also **topologically correct**.
+Existing tools help with visualization but do not prevent situations where the map looks beautiful but only approximately reflects reality. Such a model is not suitable for solving practical tasks.
+
+**Our goal** — to create a *perfect junction* in OSM. This is a logically consistent junction model containing all the necessary data and guaranteeing that each element on the map is not only visually attractive but also **topologically correct**.
 
 ![Perfect Intersection Visualization](../ru/img/osmpie-img3.png)
-
 ---
 
-## Intersection Definition and Functional Model
+## Functional Junction Model
 
-### What Constitutes an "Intersection"?
+### What is a "Junction"?
 
-From a functional modeling perspective, an intersection must possess and interconnect the following essential object set:
+From the perspective of functional modeling, a junction should include and interrelate the following set of basic objects:
 
-- **Stop Line or Entry Point**: The precise location where vehicles enter the intersection (stopline - blue point - corresponding to traffic sign 5.15)
-- **Approach**: A coordinated group of stop lines from a single directional approach
-- **Exit Point**: The designated location where vehicles leave the intersection (exitpoint - red point)
-- **Route**: The defined path connecting entry to exit points (route - purple line)
-- **Conflict Points**: Critical locations where multiple routes intersect, creating potential vehicle conflicts (conflict point - black point)
+- **Stop line or entry point**: The exact location where vehicles enter the junction (stopline — blue point — corresponds to road sign 5.15)
+- **Approach**: A coordinated group of stop lines from one approach direction
+- **Exit point**: A designated place where vehicles leave the junction (exitpoint — red point)
+- **Route**: A defined path connecting entry and exit points (route — purple line)
+- **Conflict points**: Critical locations where multiple routes intersect, creating potential vehicle conflicts (conflict point — black point)
 
-### Fundamental Intersection Characteristics
+### Fundamental Junction Characteristics
 
-1. **Dual Nature**: Intersections possess both areal and graph-based properties, embodying both [geometric](https://en.wikipedia.org/wiki/Geometry) and [topological](https://en.wikipedia.org/wiki/Topology) characteristics.
+1. **Dual nature**: Junctions possess both area (areal) and graph properties, embodying [geometric](https://ru.wikipedia.org/wiki/Геометрия) and [topological](https://ru.wikipedia.org/wiki/Топология) characteristics.
 
-2. **Cluster Composition**: An intersection represents a cluster of multiple individual crossing points rather than a singular entity.
+2. **Cluster composition**: A junction represents a cluster of multiple individual intersection points, not a single entity.
 
-3. **Radius-Based Characterization**: Each crossing can be characterized by two critical radii that bridge the graph-based and areal nature of intersections:
-   - **Intersection Radius**: Defines the area of the conflict zone
-   - **Clustering Radius**: Determines the area of influence one intersection exerts on others
+3. **Radius-based characterization**: Each intersection is characterized by two critical radii linking the graph and areal nature of junctions:
+   - **Junction radius**: Defines the conflict zone area
+   - **Clustering radius**: Defines the zone of influence of one junction on others
 
-4. **Movement-Only Zone**: Intersections represent areas where traffic regulations prohibit vehicle stopping, permitting only continuous movement through designated lanes and directions.
+4. **Movement zone**: Junctions represent areas where traffic rules prohibit vehicle stopping, allowing only continuous movement along designated lanes and directions.
 
 ### Visual Representation Comparison
 
 | OSM Objects | Lane Centerlines and Connections |
-|:------------|:--------------------------------|
-|![OSM Objects](./../ru/img/junction.points-img0.png)|![Centerlines](./../ru/img/junction.points-img2.png)|
-|(node, way, relation)|(points, edges, connections)|
+|:------------|:------------------------------------|
+|![OSM Objects](./img/junction.points-img0.png)|![Centerlines](./img/junction.points-img2.png)|
+|(node, way, relation)|(points, turns, connections)|
 
-| Intersection Area | Points and Routes |
-|:------------------|:------------------|
-|![Intersection Area](./../ru/img/junction.points-img3.png)|![Points and Routes](./../ru/img/junction.points-img1.png)|
-|`area:highway=* + junction=yes` ?|Multiple maneuvers represented as route lines and their intersections|
+| Junction Area | Points and Routes |
+|:-------------------|:-----------------|
+|![Intersection Area](./img/junction.points-img3.png)|![Points and Routes](./img/junction.points-img1.png)|
+|`area:highway=* + junction=yes` ?|Multiple routes represented as lines and their intersections|
 
 ---
 
-## Implementation Guidelines
+## How to Use OSMPIE?
 
 ### Required Actions
 
-Users should utilize any standard editor to input OSM tags for roads while exercising particular caution with relation objects. The official OSM tags and proposals provide 90-95% of the functionality required for comprehensive road mapping and rendering capabilities.
+Users should use any standard editor to input OSM road tags, exercising particular caution with relation objects. Official OSM tags and proposals provide 90–95% of the functionality needed for comprehensive road mapping and rendering.
 
-Through OSMPIE development, we have identified and defined a minimal set of simple tags along with several extensions to existing schemas that achieve 100% functionality coverage.
+During OSMPIE development, we identified a minimal set of simple tags along with several extensions to existing schemas, achieving 100% functionality coverage.
 
 ### Required Tags
 
-**Official OSM Tags:**
+**Official OSM tags:**
 ```
 highway
 crossing
@@ -114,7 +141,7 @@ tram
 ... and additional standard tags
 ```
 
-**New Extended Tags:**
+**New extended tags:**
 ```
 connect:lanes
 junction:shape
@@ -123,49 +150,37 @@ junction:cluster:radius
 crossing:corner
 ```
 
-### Visual Validation Capability
-
-The OSMPIE renderer functions as a sophisticated visual validator. When the rendered output does not meet aesthetic expectations, appears imperfect, or fails to correspond accurately to satellite imagery, this typically indicates the need for additional tags or correction of existing attributes.
+More details about all tags can be found in the [glossary](./osmpie.tags.glossary.md)
 
 ---
-
-## User Benefits and Practical Advantages
-
-### Enhanced Workflow Capabilities
-
-- **WYSIWYG Editing**: Road and intersection tag input and markup becomes significantly more accurate, precise, and user-friendly with [What You See Is What You Get](https://en.wikipedia.org/wiki/WYSIWYG) capabilities
-- **Multi-Editor Compatibility**: Support for loading [*.osc](https://wiki.openstreetmap.org/wiki/OsmChange) files created in alternative editors
-- **Export Functionality**: Save proposed modifications and open them in JOSM or other editors for continued refinement
-- **Collaborative Review**: Share links with other users for modification discussion before implementation, particularly valuable for complex or ambiguous cases
-- **Visual Change Tracking**: Comprehensive visual representation of all map modifications
-- **Multiple Export Formats**: Export or save all OSMPIE-generated objects in GeoJSON format, with direct integration to `geojson.io` for conversion to Shapefile, CSV, KML, and other formats
-- **Quality Enhancement**: Contribute to OSM improvement with reduced effort and increased precision
 
 ### Input Data Specifications
 
-**Source Data**: Overpass API queries returning comprehensive `highway=*` objects and related road infrastructure elements. All objects appear in the editor's left panel and remain available for modification (tags and geometry).
+**Source data**: Overpass API queries returning complex `highway=*` objects and related road infrastructure elements. All objects are displayed in the left panel of the editor and remain accessible for modification (tags and geometry).
 
 ### Output Data Products
 
-**Generated Components**:
-- **Lane Graph Structure**: Complete graph of road lanes, parking areas, tram tracks, and bicycle paths represented as points and arcs, topologically corresponding to original OSM way movement directions and geometrically aligned with lane centerlines
-- **Functional Intersection Points**: Specialized identification of stop lines (entry points), exit points, and conflict points for each category of intersection participants
-- **Object Clustering**: Systematic grouping of graph points and arcs into logical objects such as intersections and approaches
-- **Areal Objects**: Multi-polygon intersection representations and road polygons (see [area:highway](https://wiki.openstreetmap.org/wiki/Key:area:highway))
-- **Road Marking Objects**: Comprehensive road marking elements as polygons, lines, and points linked to corresponding graph edges
-
-![Output Data Visualization](./../ru/img/osmpie-img4.png)
+**Generated components**:
+- **Lane graph structure**: A complete graph of traffic lanes, parking zones, tram tracks, and bike paths in the form of points and arcs, topologically corresponding to the movement directions of the original OSM ways and geometrically aligned with lane centerlines
+- **Functional junction points**: Specialized identification of stop lines (entry points), exit points, and conflict points for each category of junction participants
+- **Object clustering**: Systematic grouping of graph points and arcs into logical objects such as junctions and approaches
+- **Areal objects**: Multi-polygon representations of junctions and road polygons (see [area:highway](https://wiki.openstreetmap.org/wiki/Key:area:highway))
+- **Road marking objects**: Complex road marking elements in the form of polygons, lines, and points linked to corresponding graph edges
 
 ---
+### Visual Validation Capabilities
 
-## Conclusion and Future Development
+The OSMPIE renderer functions as a sophisticated visual validator. If the rendered result looks imperfect or doesn't match satellite imagery, it's necessary to add tags or correct existing attributes.
 
-While the OSMPIE renderer maintains high accuracy standards, it may occasionally produce minor errors. However, its primary function involves precisely reflecting user specifications through OSM object tagging schemas, enhanced with aesthetic improvements including corner rounding and automatic marking generation.
+## Current Version Limitations
 
-### Current Version Limitations
+The first public release of OSMPIE contains non-customizable road marking generation, which provides maximum coverage but may not reflect specific local marking conventions, such as parking spaces or pedestrian crossings. The marking renderer works for indicating object existence, lane presence, and dimensional characteristics. We prioritize rapid resolution of these limitations in upcoming future updates.
 
-The initial public release of OSMPIE features non-customizable road marking generation that produces maximum coverage but may not reflect specific local marking conventions, such as parking spaces or pedestrian crossings. The marking renderer operates to indicate object existence, lane presence, and dimensional characteristics. We prioritize rapid resolution of these limitations in immediate future updates.
+## Conclusion
 
-### Technical Philosophy
+OSMPIE represents a paradigm shift toward professional junction modeling in the OpenStreetMap ecosystem, filling the gap between simplified linear representations and the complex reality of modern road infrastructure. Through systematic application of extended tagging schemas and sophisticated rendering algorithms, OSMPIE enables cartographers to create accurate, visually compelling representations that serve both aesthetic and functional requirements.
 
-OSMPIE represents a paradigm shift toward professional-grade intersection modeling within the OpenStreetMap ecosystem, bridging the gap between simplified line representations and the complex reality of modern road infrastructure. Through systematic application of enhanced tagging schemas and sophisticated rendering algorithms, OSMPIE enables cartographers to create precise, visually compelling representations that serve both aesthetic and functional requirements.
+## Recommended Articles
+
+1. [Getting Started with OSMPIE](./getting-started.md)
+2. [Workflow, Window and Form Descriptions](./workflow.and.forms.md)
