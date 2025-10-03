@@ -20,7 +20,7 @@ Buy Pro
   --inverse-color-rgb: 73, 75, 91;
   --bs-link-color: var(--bs-primary);
   --nav-bg: #ffffff;
-  --nav-color: #fff;
+  --nav-color: #ffffff;
   --nav-hover-color: #1f6bff;
   --dropdown-bg: #ffffff;
   --dropdown-color: #1f6bff;
@@ -788,10 +788,11 @@ h6 {
   font-weight: 600;
   font-size: 0.75rem;
   margin-bottom: 10px;
-  position: relative;
-  top: -70px;
   z-index: 10;
-  left: 35%;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero__v6 .hero-title {
@@ -895,7 +896,7 @@ h6 {
 }
 
 .about__v4 .mission-statement.light {
-  background-color: #f9e8ab;
+  background-color: #f5f5f5;
   position: relative;
   bottom: -20px;
   width: 100%;
@@ -935,7 +936,7 @@ h6 {
 
 .about__v4 .mission-icon.light {
 
-  background-color: #f3c57055;
+  background-color: #f3cd62;
 }
 .about__v4 .mission-icon.light i {
   color: var(--bs-primary);
@@ -1224,37 +1225,40 @@ h6 {
 }
 
 .footer {
-  background-color: #f3c57022;
-  /*background-color: rgba(var(--inverse-color-rgb), 0.02);*/
+  background-color: #4a4b5bcc;
+  color: var(--nav-color);
   font-size: 15px;
 }
 
 .footer h2, .footer h3, .footer h4 {
   font-size: 16px;
+  color: var(--nav-color);
 }
 .footer ul li {
+  color: var(--nav-color);
   padding: 0;
   margin: 0 0 10px 0;
 }
 .footer a {
-  color: rgba(var(--inverse-color-rgb), 0.6);
-  text-decoration: none;
+  color: var(--nav-color);
+  text-decoration: underline;
 }
 .footer a:hover {
-  color: var(--inverse-color);
+  color: var(--nav-color);
+  text-decoration: none;
 }
 .footer a .badge {
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
   background-color: rgba(var(--bs-primary-rgb), 0.1);
-  color: var(--bs-primary);
+  color: var(--nav-color);
 }
 .footer a:hover .badge {
   background-color: rgba(var(--bs-primary-rgb), 1);
-  color: var(--bs-white);
+  color: var(--nav-color);
 }
 .footer .quick-contact i {
-  color: var(--inverse-color);
+  color: var(--nav-color);
 }
 .footer .credits {
   font-size: 13.5px;
