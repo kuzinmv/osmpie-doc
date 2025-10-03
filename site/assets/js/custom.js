@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const notification = document.createElement('div');
     notification.textContent = message;
     notification.style.cssText = `
-      position: fixed;
+      position: absolute;
       top: 20px;
       right: 20px;
       background: #4CAF50;
@@ -566,7 +566,7 @@ function getMapInfo() {
   const center = view.getCenter();
   if (center) {
     const lonLat = ol.proj.toLonLat(center);
-    console.log('Center:', lonLat, zoom);
+    // console.log('Center:', lonLat, zoom);
     const [lon, lat] = lonLat;
     const newHref = `https://osmpie.org/app/?pos=${lon.toFixed(6)}&pos=${lat.toFixed(6)}&zoom=${zoom.toFixed(2)}`;
     exploreLink.href = newHref;
