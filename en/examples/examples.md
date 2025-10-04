@@ -1,6 +1,6 @@
 ## Bakery Gallery
 
-Here we will collect various examples of corrected intersections, simple and complex, broken and perfected.
+Various examples of corrected intersections, simple and complex, broken and perfected are collected here.
 
 | Simple Intersection, 2 left turn lanes | An impressive part of Omsk city center |
 | :---------------- | :------ |
