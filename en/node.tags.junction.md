@@ -106,12 +106,8 @@ The proposed system is fully compatible with existing OpenStreetMap tags and can
 
 ## Recommended Articles
 
-[OSMPIE Tags Glossary](./osmpie.tags.glossary.md)
-
-[junction:shape](./node.tags.junction:shape.md)
-
-[junction:radius](./node.tags.junction:radius.md)
-
-[junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-
-[How to understand what a conflict zone is, why is radius needed?](./junction:radius.vs.width.md)
+- [OSMPIE Tags Glossary](./osmpie.tags.glossary.md)
+- [junction:shape](./node.tags.junction:shape.md)
+- [junction:radius](./node.tags.junction:radius.md)
+- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+- [How to understand what a conflict zone is, why is radius needed?](./junction:radius.vs.width.md)
