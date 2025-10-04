@@ -1,4 +1,4 @@
-# OSMPIE Editor: Complete Workflow and Advanced Features Guide
+# OSMPIE Tutorial: Complete Workflow and Advanced Features Guide
 
 ## 1. Comprehensive Workflow and Input Forms
 
@@ -176,3 +176,9 @@ The OSMPIE editor represents a comprehensive solution for professional intersect
 - **Collaborative Enhancement**: Built-in sharing and review capabilities
 - **Professional Documentation**: Comprehensive change tracking and differential analysis
 - **Automated Maintenance**: Intelligent relation repair and referential integrity preservation
+
+## Recommended articles
+
+[How to bake the perfect intersection](./perfect.junction.md)
+
+[Glossary of OSMPIE tags](./osmpie.tags.glossary.md).
