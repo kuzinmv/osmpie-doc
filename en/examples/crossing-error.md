@@ -21,5 +21,5 @@ Thus, for all pedestrian crossings at an intersection to display correctly, it i
 |1|2|
 
 ### Recommended Articles
-[junction:cluster:radius](./node.tags.junction:cluster:radius.md)  
-[crossing:corner](./node.tags.crossing:corner.md)
+- [Tag junction:cluster:radius](../node.tags.junction:cluster:radius.md)  
+- [Tag crossing:corner](../node.tags.crossing:corner.md)
