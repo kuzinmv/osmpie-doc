@@ -109,3 +109,4 @@ node.tags {
 - [junction:radius](./node.tags.junction:radius.md)
 - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
 - [О сходстве width и junction:radius](./junciotn:radius.vs.width.md)
+- [Ошибки при рендере пешеходного перехода](./examples/crossing-error.md)
