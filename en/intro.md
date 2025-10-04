@@ -90,7 +90,7 @@ From the perspective of functional modeling, a junction should include and inter
 
 ### Fundamental Junction Characteristics
 
-1. **Dual nature**: Junctions possess both area (areal) and graph properties, embodying [geometric](https://ru.wikipedia.org/wiki/Геометрия) and [topological](https://ru.wikipedia.org/wiki/Топология) characteristics.
+1. **Dual nature**: Junctions possess both area (areal) and graph properties, embodying [geometric](https://en.wikipedia.org/wiki/Geometry) and [topological](https://wikipedia.org/wiki/Topology) characteristics.
 
 2. **Cluster composition**: A junction represents a cluster of multiple individual intersection points, not a single entity.
 
