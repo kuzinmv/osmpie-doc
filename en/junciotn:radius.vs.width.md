@@ -151,6 +151,6 @@ The `junction:radius` tag has not yet been included in the official OSM document
 
 ## Additional Links
 
--   See the detailed article on [junction:radius](./node.tags.junction:radius.md).
+-   Tag [junction:radius](./node.tags.junction:radius.md).
 -   See also [Key:diameter](https://wiki.openstreetmap.org/wiki/Key:diameter)
--   [diameter=*](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree#Additional_tags)
+-   Detailed about [diameter=*](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree#Additional_tags)
