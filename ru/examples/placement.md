@@ -107,6 +107,6 @@ placement:backward = dist:-8
 
 ## Рекомендуемые статьи
 
-[Как "приготовить" идеальный перекрёсток](./perfect.junction.md)  
-[connect:lanes](./way.tags.connect:lanes.md)  
-[junction:shape](./node.tags.junction:shape.md)
+- [Как "приготовить" идеальный перекрёсток](../perfect.junction.md)  
+- [Тег connect:lanes](../way.tags.connect:lanes.md)  
+- [Тег junction:shape](../node.tags.junction:shape.md)
