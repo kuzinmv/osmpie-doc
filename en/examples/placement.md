@@ -59,7 +59,7 @@ For this situation, it's sufficient to represent a separate centerline for each 
 
 | Double centerline             | Common centerline + lanes:both_ways: 1 | 
 | :---------------- | :------ | 
-|![image info](../ru/examples/img/placement-img1.png) |![image info](../ru/examples/img/placement-img2.png) |
+|![image info](/ru/examples/img/placement-img1.png) |![image info](/ru/examples/img/placement-img2.png) |
 | By adding a positive offset of 1.5 meters separately for forward and backward directions, we precisely position our centerline for each half, creating a buffer zone between them. | For this way segment, this is not required, since the middle of the road here contains not a buffer zone, but a lane that must be specified with the `lanes:both_ways: 1` tag. | 
 
 Real example of such a changeset [placement with 2 centerline](https://osmpie.org/app/editor?bakeId=3f865538-017f-4fd8-92db-0240111ac257&pos=37.570287&pos=55.718356&zoom=19.37&tile=Esri+World
@@ -73,7 +73,7 @@ Road sections where the number of lanes changes, forks are organized, or merges 
 
 |  Sausage roads            | Ramps | 
 | :---------------- | :------ | 
-|![image info](../ru/examples/img/placement-img3.png) |![image info](../ru/examples/img/placement-img7.png) |
+|![image info](/ru/examples/img/placement-img3.png) |![image info](/ru/examples/img/placement-img7.png) |
 | In the USA and Canada, a road construction method is very widespread where roadways are separated and then reunited again.             | Placement=transition noticeably improves geometry when rendering small "branches" at intersections, roundabouts, forks, and merges | 
 
 Real example of such a changeset [placement=transition](https://osmpie.org/app/editor?bakeId=c285c907-bce5-4ac6-99ee-2915854006d9&pos=73.378755&pos=54.972586&zoom=19.83&tile=Esri+World)
@@ -83,7 +83,7 @@ Real example of such a changeset [placement=transition](https://osmpie.org/app/e
 
 How to optimally map the common situation when vehicles making left turns at an intersection pass each other on the right side?
 
-![image info](../ru/examples/img/placement-img6.png)
+![image info](/ru/examples/img/placement-img6.png)
 
 Drawing two separate way objects contradicts reality, since there are no separated roadways here.
 Therefore, we need a way to move the traffic lanes so that they "face each other" not with their left sides, but with their right sides. The placement tag is suitable for this. Similar to how lanes are spread apart with it to form a buffer zone, they can be "moved closer" to each other and, moving further, their mutual position can be changed to mirror — for this we use negative dist values.
@@ -96,7 +96,7 @@ placement:backward = dist:-8
 
 | Adding placement tag for both sides              | Transfer result | 
 | :---------------- | :------ | 
-|![image info](../ru/examples/img/placement-img4.png) |![image info](../ru/examples/img/placement-img5.png) |
+|![image info](/ru/examples/img/placement-img4.png) |![image info](/ru/examples/img/placement-img5.png) |
 | "mechanics" of transferring the left part of the road to the right and vice versa           | Result: traffic trajectories are accurate and have no mutual intersection | 
 
 Real example of such a changeset [placement with 2 left turn](https://osmpie.org/app/editor?bakeId=3f865538-017f-4fd8-92db-0240111ac257&pos=37.570287&pos=55.718356&zoom=19.37&tile=Esri+World)
