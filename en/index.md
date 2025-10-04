@@ -1,7 +1,7 @@
 ## Contents
 0. [Introduction](./intro.md)
 1. [Getting Started with OSMPIE](./getting-started.md)
-2. [Workflow, Window and Form Descriptions](./workflow.and.forms.md)
+2. [Workflow, Windows and Forms Descriptions](./workflow.and.forms.md)
 3. [How to "Prepare" a Perfect Junction](./perfect.junction.md)
     - [junction: yes|no|controlled...](./node.tags.junction.md)
 4. [OSMPIE Tags Glossary](./osmpie.tags.glossary.md)
@@ -18,3 +18,4 @@
     - Why Axis Position Matters - [placement = transition | dist:[number]](./examples/placement.md)
 8. Common Mistakes and Why They Happen
     - [Crosswalk Markings Disappeared](./examples/crossing-error.md)
+
