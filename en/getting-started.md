@@ -2,6 +2,11 @@
 
 ## 1. Initiating Your OSMPIE Session
 
+### Rights and Obligations of OSMPIE Users
+When you use OSMPIE, you're working with data from OpenStreetMap (OSM), which means you're part of a sharing community. Here's what matters most: any data or results you create using OSMPIE don't belong to you alone—they must be shared with everyone under the same open terms. You're also required to give credit by clearly marking your work as produced using OSMPIE and OSM. Think of it as a "share-alike" arrangement: you benefit from the community's data, and in return, your contributions flow back to the community. 
+
+For complete details visit [Copyright and License](./odbl.md)
+
 ### Initial Interface Overview
 ![OSMPIE Start Screen](./../ru/img/screen1.png)
 
