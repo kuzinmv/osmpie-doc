@@ -42,7 +42,7 @@ node
 A junction without active control systems; right-of-way is determined by priority rules.
 Intersections with such junctions are typically genuinely uncontrolled intersections, with corresponding signs and markings on each approach ("main road", "give way", "stop", etc.).
 
-![image info](ru/img/junction-img2.png)
+![image info](../ru/img/junction-img2.png)
 
 ***Renderer Specifics:***
 1.  A separate "intersection" object is created, inside which there is no road marking.
@@ -51,7 +51,7 @@ Intersections with such junctions are typically genuinely uncontrolled intersect
 ## 2. `junction = no`
 A junction without active control systems; right-of-way is determined by priority rules and signs. Junctions of this type are often not considered intersections according to traffic regulations and are usually access points to a main artery. It is incorrect to tag the minor way as `service` if the adjoining road is a regular way (`secondary`, `tertiary`, or `residential`), and not an exit from a parking lot or technical zone.
 
-![image info](ru/img/junction-img1.png)
+![image info](../ru/img/junction-img1.png)
 
 ***Renderer Specifics:***
 A special separate intersection object is not created; instead, the linear marking of the main road continues. On minor roads, the approaches are separated by additional dashed markings.
@@ -60,7 +60,7 @@ A special separate intersection object is not created; instead, the linear marki
 A junction involving service roads providing access to adjacent territories, or [highway=service](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dservice).
 Very similar to the previous junction type but выделен в отдельный класс ( выделен в отдельный класс - выделен в отдельный класс ) due to its focus on `way[highway=service]`.
 
-![image info](ru/img/junction-img6.png)
+![image info](../ru/img/junction-img6.png)
 
 ***Renderer Specifics:***
 A special separate intersection object is not created; instead, the linear marking of the main road continues. On minor roads, the approaches are separated by additional dashed markings. Medians, parking lanes, and bus lanes may be interrupted by dashed markings at such junctions.
@@ -70,7 +70,7 @@ This junction type is separated because when such intersection points are untagg
 ## 4. `junction = controlled`
 The presence of traffic light control. A junction where traffic is regulated by active systems.
 
-![image info](ru/img/junction-img5.png)
+![image info](../ru/img/junction-img5.png)
 
 ***Renderer Specifics:***
 A separate intersection object is created, inside which there is no linear marking, but the approaches have markings specific to this type of intersection. A stop line is marked on each road. Beyond it, each lane is defined by three types of lines (solid, long-dash intermittent (3/1), short-dash intermittent (1/3)) with lane maneuver signs applied.
@@ -83,7 +83,7 @@ When the number of traffic lanes differs between adjacent segments, lane-changin
 - Topological connectivity ([connect:lanes](./way.tags.connect:lanes.md))
 - Specific traffic safety parameters
 
-![image info](ru/img/junction-img3.png)
+![image info](../ru/img/junction-img3.png)
 
 **Semantic Justification**:
 Points of this kind are also classified as `junction` because they possess 3 out of the 4 junction characteristics (conflicts may be absent in `joint`).

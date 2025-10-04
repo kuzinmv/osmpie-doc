@@ -5,7 +5,7 @@ This article is a response to a question on the article [junction:radius](./node
 It's hard to immediately grasp what a conflict zone is and why it should be mapped?
 ~~~
 
-![image info](ru/img/junction-surface-skeleton1.png)
+![image info](../ru/img/junction-surface-skeleton1.png)
 
 
 ## Introduction
@@ -83,7 +83,7 @@ Let's analyze examples:
 
 | node[junction = yes] | node[junction:radius = 8] | way[junction=yes + area=yes] |
 | :--- | :--- | :--- |
-| ![image info](https://wiki.openstreetmap.org/w/images/7/7e/Junction_yes_example_1.png) | ![image info](ru/img/junction:radius-img10.png) | ![image info](https://wiki.openstreetmap.org/w/images/thumb/2/22/Example_id_junction_area.png/360px-Example_id_junction_area.png) |
+| ![image info](https://wiki.openstreetmap.org/w/images/7/7e/Junction_yes_example_1.png) | ![image info](../ru/img/junction:radius-img10.png) | ![image info](https://wiki.openstreetmap.org/w/images/thumb/2/22/Example_id_junction_area.png/360px-Example_id_junction_area.png) |
 | Simple indication of the presence of an intersection | Conditional radius for describing the geometry of the conflict zone—the same principle as `width` for roads | Detailed polygonal mapping |
 
 ### Definition of `junction:radius`

@@ -104,12 +104,12 @@ From the perspective of functional modeling, a junction should include and inter
 
 | OSM Objects | Lane Centerlines and Connections |
 |:------------|:------------------------------------|
-|![OSM Objects](./img/junction.points-img0.png)|![Centerlines](./img/junction.points-img2.png)|
+|![OSM Objects](../ru/img/junction.points-img0.png)|![Centerlines](../ru/img/junction.points-img2.png)|
 |(node, way, relation)|(points, turns, connections)|
 
 | Junction Area | Points and Routes |
 |:-------------------|:-----------------|
-|![Intersection Area](./img/junction.points-img3.png)|![Points and Routes](./img/junction.points-img1.png)|
+|![Intersection Area](../ru/img/junction.points-img3.png)|![Points and Routes](../ru/img/junction.points-img1.png)|
 |`area:highway=* + junction=yes` ?|Multiple routes represented as lines and their intersections|
 
 ---

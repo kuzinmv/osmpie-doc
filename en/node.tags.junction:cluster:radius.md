@@ -50,21 +50,21 @@ In nodes where `junction:cluster:radius` is not explicitly specified, it default
 On the left half are the nodes and ways; on the right half is the intersection model, where the radius of each node is represented as a hexagon.
 All hexagons are grouped based on the union criterion.
 
-![image info](ru/img/junction:cluster:radius-img1.png)
+![image info](../ru/img/junction:cluster:radius-img1.png)
 
 As a result, with this combination of `junction:cluster:radius` values, we get 4 "intersections", each with its own conflict zone. This means that in reality, each resulting "intersection" *should* have its own separate stop line for conflict resolution.
 
-![image info](ru/img/junction:cluster:radius-img4.png)
+![image info](../ru/img/junction:cluster:radius-img4.png)
 
 The following illustration confirms that several junctions can be combined into a single object. Each junction is marked with a blue circle (see the tag [junction:radius](./node.tags.junction:radius.md)), with each cluster containing 3-4 junctions of ways (vehicle and pedestrian, with different radii).
 
-![image info](ru/img/junction:cluster:radius-img5.png)
+![image info](../ru/img/junction:cluster:radius-img5.png)
 
 Let's increase the `junction:cluster:radius` values from twelve to thirty-two meters.
 All junctions merged into one intersection in the shape of a horseshoe. With this radius combination, this intersection resembles a roundabout (semi-roundabout), inside which road users are not allowed to stop.
 However, this radius configuration is artificially incorrect because the pedestrian crossings still remain.
 
-![image info](ru/img/junction:cluster:radius-img3.png)
+![image info](../ru/img/junction:cluster:radius-img3.png)
 
 ---
 
@@ -76,7 +76,7 @@ Let's compare explicitly specifying such a configuration using the `cluster:radi
 
 Let's look at a fairly large section of a typical map. Yellow dots mark nodes where the presence of traffic light regulation is indicated in one way or another: `highway: traffic_signals | crossing: traffic_signals`
 
-![image info](ru/img/junction:cluster:radius-img7.png)
+![image info](../ru/img/junction:cluster:radius-img7.png)
 
 Looking from a "bird's-eye view" at how junctions are typically grouped (using traffic lights as an example), it's clear that distinct clusters form, and we could achieve this automatically in one way or another.
 
@@ -84,7 +84,7 @@ But if we introduce a relation explicitly, then **every** intersection, despite 
 
 ## Example of Using the Tag in Combination with Other `junction:*` Tags
 
-![image info](ru/img/junction:cluster:radius-img8.png)
+![image info](../ru/img/junction:cluster:radius-img8.png)
 
 At first glance, this appears to be a trivial T-shaped intersection, but this impression is deceptive.
 
