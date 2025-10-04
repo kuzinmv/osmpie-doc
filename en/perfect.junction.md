@@ -4,19 +4,13 @@
 To create the perfect [junction](./node.tags.junction.md) in OSMPIE, we will need the following ingredients:
 
 
-[Number of Lanes](#1-number-of-lanes)
-
-[Turns and Connectivity](#2-turns-and-connectivity)
-
-[Lane Width and Position](#3-lane-width-and-position-from-centerline)
-
-[Intersection Types and New junction:* Tags](#4-intersections-and-junctions)
-
-[Parking, Stops, Bicycle Lanes](#5-parking-stops-bike-lanes-and-trams)
-
-[Auxiliary Tags](#6-auxiliary-tags-for-render-control)
-
-[Road Markings (in development)](#7-road-markings-soon)
+- [Number of Lanes](#1-number-of-lanes)
+- [Turns and Connectivity](#2-turns-and-connectivity)
+- [Lane Width and Position](#3-lane-width-and-position-from-centerline)
+- [Intersection Types and New junction:* Tags](#4-intersections-and-junctions)
+- [Parking, Stops, Bicycle Lanes](#5-parking-stops-bike-lanes-and-trams)
+- [Auxiliary Tags](#6-auxiliary-tags-for-render-control)
+- [Road Markings (in development)](#7-road-markings-soon)
 
 ## 1. Number of Lanes
 
