@@ -18,3 +18,5 @@
     - Почему положение оси важно - [placement = transition | dist:[number]](./examples/placement.md)
 8. Типичные ошибки и почему они происходят
     - [Пропала разметка пешеходного перехода](./examples/crossing-error.md)
+9. [Авторские права и лицензии](./odbl.md)  
+
