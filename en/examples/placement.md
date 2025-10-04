@@ -107,6 +107,6 @@ The placement tag with the proposed dist value and forward and backward suffixes
 
 ## Recommended Articles
 
-[How to "Cook" the Perfect Intersection](./perfect.junction.md)  
-[connect:lanes](./way.tags.connect:lanes.md)  
-[junction:shape](./node.tags.junction:shape.md)
+- [How to "Bake" the Perfect Intersection](../perfect.junction.md)  
+- [Tag connect:lanes](../way.tags.connect:lanes.md)  
+- [Tag junction:shape](../node.tags.junction:shape.md)
