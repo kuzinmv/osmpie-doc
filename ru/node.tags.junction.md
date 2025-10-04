@@ -121,12 +121,8 @@ SELECT * FROM nodes WHERE tags->'junction' = 'controlled';
 
 ## Рекомендуемые статьи
 
-[Глоссарий тегов OSMPIE](./osmpie.tags.glossary.md)
-
-[junction:shape](./node.tags.junction:shape.md)
-
-[junction:radius](./node.tags.junction:radius.md)
-
-[junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-
-[Как понять что такое зона конфликта, зачем нужен radius ?](./junciotn:radius.vs.width.md)
+- [Глоссарий тегов OSMPIE](./osmpie.tags.glossary.md)
+- [junction:shape](./node.tags.junction:shape.md)
+- [junction:radius](./node.tags.junction:radius.md)
+- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+- [Как понять что такое зона конфликта, зачем нужен radius ?](./junction:radius.vs.width.md)
