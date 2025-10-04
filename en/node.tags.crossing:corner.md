@@ -109,3 +109,4 @@ The `crossing:corner` tag represents an important tool for increasing the accura
 - [junction:radius](./node.tags.junction:radius.md)
 - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
 - [On the similarity of width and junction:radius](./junciotn:radius.vs.width.md)
+- [Pedestrians crossing rendering issuies](./examples/crossing-error.md)
