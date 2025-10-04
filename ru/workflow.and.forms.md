@@ -119,6 +119,5 @@
 
 ## Рекомендуемые статьи
 
-[Как приготовить идеальный перекрёсток](./perfect.junction.md)
-
-[Глоссарий тегов OSMPIE](./osmpie.tags.glossary.md).
+- [Как приготовить идеальный перекрёсток](./perfect.junction.md)
+- [Глоссарий тегов OSMPIE](./osmpie.tags.glossary.md).
