@@ -10,7 +10,7 @@ To create the perfect [junction](./node.tags.junction.md) in OSMPIE, we will nee
 - [Intersection Types and New junction:* Tags](#4-intersections-and-junctions)
 - [Parking, Stops, Bicycle Lanes](#5-parking-stops-bike-lanes-and-trams)
 - [Auxiliary Tags](#6-auxiliary-tags-for-render-control)
-- [Road Markings (in development)](#7-road-markings-soon)
+- [Road Markings (in development)](#7-road-markings)
 
 ## 1. Number of Lanes
 
