@@ -21,5 +21,5 @@
 |1|2|
 
 ### Рекомендуемые статьи
-[junction:cluster:radius](./node.tags.junction:cluster:radius.md)  
-[crossing:corner](./node.tags.crossing:corner.md)
+- [Тег junction:cluster:radius](../node.tags.junction:cluster:radius.md)  
+- [Тег crossing:corner](../node.tags.crossing:corner.md)
