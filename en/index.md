@@ -18,4 +18,6 @@
     - Why Axis Position Matters - [placement = transition | dist:[number]](./examples/placement.md)
 8. Common Mistakes and Why They Happen
     - [Crosswalk Markings Disappeared](./examples/crossing-error.md)
+9. [Copyright and License](./odbl.md)
+
 
