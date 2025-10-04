@@ -130,7 +130,7 @@ This glossary covers most of the tags used in the code for transforming OSM data
 ## 11. Glossary of Tags with `osmpie:` Prefix
 
 These tags provide a mechanism to overcome limitations of standard OSM tags and fine-tune the road model creation process for specific requirements.
-See [Auxiliary tags](./perfect.junction.md#6-вспомогательные-теги-для-управления-рендером)
+See [Auxiliary tags](./perfect.junction.md#6-auxiliary-tags-for-render-control)
 
 
 ### 1. **`osmpie:usefull`**
@@ -186,12 +186,8 @@ Tags with the `osmpie:` prefix are **service tags** that:
 
 Concepts introduced by OSMPIE and tags for their representation
 
-[connect:lanes](./way.tags.connect:lanes.md)
-
-[junction:shape](./node.tags.junction:shape.md)
-
-[junction:radius](./node.tags.junction:radius.md)
-
-[junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-
-[crossing:corner](./node.tags.crossing:corner.md)
+- [connect:lanes](./way.tags.connect:lanes.md)
+- [junction:shape](./node.tags.junction:shape.md)
+- [junction:radius](./node.tags.junction:radius.md)
+- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+- [crossing:corner](./node.tags.crossing:corner.md)
