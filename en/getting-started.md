@@ -106,6 +106,6 @@ This comprehensive interface design enables both novice and expert users to achi
 
 ## Recommended Articles
 
-1. [Workflow, Windows and Forms Descriptions](./workflow.and.forms.md)
-2. [How to bake a Perfect Junction](./perfect.junction.md)
-
+- [Workflow, Windows and Forms Descriptions](./workflow.and.forms.md)
+- [How to bake a Perfect Junction](./perfect.junction.md)
+- [Copyright and License](./odbl.md)
