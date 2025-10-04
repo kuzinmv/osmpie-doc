@@ -18,5 +18,6 @@ Plus, there's real satisfaction in the work: it's rewarding when an OSM intersec
 All OpenStreetMap data is licensed under the Open Database License (ODbL). Learn more: [English](./en/odbl.md) | [Русский](./ru/odbl.md)
 
 **OSMPIE service documentation & issues repo**
- - [Русский](./ru/index.md) 
  - [English](./en/index.md)
+ - [Русский](./ru/index.md) 
+ 
