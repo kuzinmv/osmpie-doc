@@ -1,4 +1,4 @@
-## Pedestrian Crossing Rendering Errors
+## Pedestrian Crossing Rendering Issues
 
 If a pedestrian crossing did not display during rendering, check the following points:
 
@@ -12,12 +12,12 @@ Thus, for all pedestrian crossings at an intersection to display correctly, it i
 
 |A|B|  
 | :------ | :---------------- |  
-|![image info](../ru/examples/img/crossing.error-img1.png)|![image info](../ru/examples/img/crossing.error-img2.png)|
+|![image info](/ru/examples/img/crossing.error-img1.png)|![image info](/ru/examples/img/crossing.error-img2.png)|
 |1|2|
 
 |A|B|  
 | :------ | :---------------- |  
-|![image info](../ru/examples/img/crossing.error-img3.png)|![image info](../ru/examples/img/crossing.error-img4.png)|
+|![image info](/ru/examples/img/crossing.error-img3.png)|![image info](/ru/examples/img/crossing.error-img4.png)|
 |1|2|
 
 ### Recommended Articles
