@@ -1,6 +1,6 @@
-# Глоссарий тегов и ключей OSM использующихся в OSMPIE
+# Глоссарий тегов и ключей OSM, использующихся в OSMPIE
 
-Этот глоссарий охватывает большую часть тегов, используемых в коде для преобразования OSM-данных в детальную модель дорожной сети. 
+Этот глоссарий охватывает большую часть тегов, используемых в коде для преобразования OSM-данных в детальную модель дорожной сети.
 
 
 ## 1. **Основные теги дорог (Highway)**
@@ -9,9 +9,9 @@
     *   `trunk`, `trunk_link`
     *   `primary`, `primary_link`
     *   `secondary`, `secondary_link`
-    *   `tertiary`, `tertiary_link`    
-*  и прочие значения:    
-    *   `residential`,`living_street`,`unclassified`,`service`,`pedestrian`,`footway`,`cycleway`,`construction`,`road` (устаревший, используется когда точная классификация неизвестна)
+    *   `tertiary`, `tertiary_link`
+*  и прочие значения:
+    *   `residential`, `living_street`, `unclassified`, `service`, `pedestrian`, `footway`, `cycleway`, `construction`, `road` (устаревший, используется когда точная классификация неизвестна)
     *   **Документация:** [Key:highway](https://wiki.openstreetmap.org/wiki/Key:highway)
 
 ## 2. **Теги рельсового транспорта (Railway)**
@@ -23,19 +23,19 @@
     *   `tram_traffic_signals` (светофор для трамвая)
     *   **Документация:** [Key:railway](https://wiki.openstreetmap.org/wiki/Key:railway)
 
-## 3. **Теги управления движением и перекрестками**    
-*   **`junction`**: Тип перекрестка.
+## 3. **Теги управления движением и перекрёстками**
+*   **`junction`**: Тип перекрёстка.
     *   `roundabout` (кольцевая развязка)
-    *   `uncontrolled` (нерегулируемый перекресток)
-    *   `controlled` (регулируемый перекресток, например, со светофором)
-    *   `no` (не является перекрестком)
+    *   `uncontrolled` (нерегулируемый перекрёсток)
+    *   `controlled` (регулируемый перекрёсток, например, со светофором)
+    *   `no` (не является перекрёстком)
     *   `inout` (въезд/выезд, например, для сервисных дорог)
     *   `joint` (стык)
-    
-**Документация:** 
-- [Key:junction](https://wiki.openstreetmap.org/wiki/Key:junction) 
+
+**Документация:**
+- [Key:junction](https://wiki.openstreetmap.org/wiki/Key:junction)
 - [OSMPIE Key:junction extended](./node.tags.junction.md)
-    
+
 *   **`traffic_signals`**: Светофор.
     *   **Документация:** [Tag:highway=traffic_signals](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtraffic_signals)
 
@@ -50,9 +50,9 @@
 
 *   **`lanes`**: Общее количество полос движения.
 *   **`lanes:forward`**, **`lanes:backward`**: Количество полос для прямого и обратного направления.
-*   **`lanes:both_ways`**: Количество полос, используемых для движения в обоих направлениях (напр., на узкой дороге).
+*   **`lanes:both_ways`**: Количество полос, используемых для движения в обоих направлениях (например, на узкой дороге).
 *   **`turn:lanes`**, **`turn:lanes:forward`**, **`turn:lanes:backward`**: Разметка по полосам для поворотов (например, `left|through|right`).
-*   **`change:lanes`**: Разрешен ли перестроение между полосами (`yes`, `no`, `not_right`, `not_left`).
+*   **`change:lanes`**: Разрешено ли перестроение между полосами (`yes`, `no`, `not_right`, `not_left`).
 *   **`psv:lanes`**, **`bus:lanes`**, **`bicycle:lanes`**: Выделенные полосы для общественного транспорта, автобусов и велосипедистов.
 *   **`width:lanes`**: Ширина полос.
 *   **Документация:** [Key:lanes](https://wiki.openstreetmap.org/wiki/Key:lanes)
@@ -60,14 +60,14 @@
 ## 5. **Теги парковки (Parking)**
 *   **`parking:left`**, **`parking:right`**, **`parking:both`**: Размещение парковки.
     *   `lane` (парковочная полоса)
-    *   `shared_lane` (совмещенная полоса)
+    *   `shared_lane` (совмещённая полоса)
     *   `street_side` (уличная парковка)
     *   `link` (соединение)
 *   **`parking:lane:orientation`**: Ориентация парковки (`parallel`, `diagonal`, `perpendicular`).
 *   **`parking:lane:width`**: Ширина парковочной полосы.
 
-**Документация:** 
-- [Street_parking](https://wiki.openstreetmap.org/wiki/Street_parking), 
+**Документация:**
+- [Street_parking](https://wiki.openstreetmap.org/wiki/Street_parking),
 - [Key:parking:lane](https://wiki.openstreetmap.org/wiki/Key:parking:lane)
 
 ## 6. **Теги велосипедной инфраструктуры (Cycleway)**
@@ -86,7 +86,7 @@
 *   **`public_transport=stop_position`**: Место остановки транспорта.
 *   **`bus_bay`**: Карман для остановки автобуса.
 
-**Документация:** 
+**Документация:**
 - [Key:public transport](https://wiki.openstreetmap.org/wiki/Key:public_transport)
 - [bus_bay](https://wiki.openstreetmap.org/wiki/Key:bus_bay)
 
@@ -120,9 +120,9 @@
 *   **`width`**: Общая ширина дороги или объекта.
 *   **`layer`**: Вертикальный уровень для тоннелей, мостов и т.д.
 *   **`surface`**: Покрытие (в коде есть фильтрация по `ground`, `compacted`, `steps`).
-*   **`placement`**, **`placement:forward`**, **`placement:backward`**: Смещение оси дороги для сложной конфигурации полос. 
-*   **`junction:radius`**: Радиус скругления на перекрестке.
-*   **`junction:shape`**: Геометрия перекрестка (`auto`, `rectangle`, `staggered`).
+*   **`placement`**, **`placement:forward`**, **`placement:backward`**: Смещение оси дороги для сложной конфигурации полос.
+*   **`junction:radius`**: Радиус скругления на перекрёстке.
+*   **`junction:shape`**: Геометрия перекрёстка (`auto`, `rectangle`, `staggered`).
 *   **`footway=crossing`**: Пешеходный переход.
 
 **Документация:** Обязательно посмотрите статью про [placement](./examples/placement.md)
@@ -131,7 +131,7 @@
 
 Эти теги предоставляют механизм для преодоления ограничений стандартных OSM-тегов и тонкой настройки процесса создания дорожной модели под специфические требования.
 см [Вспомогательные теги](./perfect.junction.md#6-вспомогательные-теги-для-управления-рендером)
- 
+
 
 ### 1. **`osmpie:usefull`**
 - **Назначение**: Флаг для фильтрации сервисных дорог (service ways)
@@ -156,7 +156,7 @@
   - Числовое значение - минимальное расстояние между узлами в метрах
   - `yes` - агрессивное разрежение (большое расстояние)
   - `no` - отключить разрежение (сохранить все узлы)
-- **Контекст использования**: Удаление лишних узлов, которые не несут семантической нагрузки (не являются перекрестками, светофорами и т.д.)
+- **Контекст использования**: Удаление лишних узлов, которые не несут семантической нагрузки (не являются перекрёстками, светофорами и т.д.)
 
 
 ### 4. **`osmpie:ignore`**
@@ -194,4 +194,4 @@
 
 [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
 
-[crossing:corner](./node.tags.crossing:corner.md) 
+[crossing:corner](./node.tags.crossing:corner.md)

@@ -1,59 +1,57 @@
-# junction:shape - Tag for Specifying Characteristic Intersection Geometry
+# junction:shape — tag for indicating the characteristic shape of the intersection of two paths
 
-## Syntax
+### Syntax
 ```
 node.tags {
    junction:shape: rectangle|oblique|staggered
 }
 ```
 
-## Applicable Objects
-This tag applies exclusively to `node` objects that represent intersections of two or four ways. It is most commonly used for standard two-road intersections or single-road pedestrian crossing configurations.
+### Application
 
-The tag defines intersection geometry and relationships between imaginary or actual stop lines of conflicting paths at the intersection point.
+This tag applies only to objects of type `node` that are intersections of two or four ways.
+Most often, the tag is applied to the most common intersections of two roads or one road with a pedestrian crossing. For intersections of three, five or more ways, the tag is not applicable.
+The tag reflects the shape of the intersection and the relationships between stop lines (imaginary or real) of conflicting paths at this intersection.
+This tag is not needed when mapping roads and pedestrian crossings using only way centerlines.
+But as soon as we increase the requirements for image detail or achieve that area objects look like in reality, reproducing topologically accurate "zebras", stop lines and their relationships, this tag becomes necessary and should be specified explicitly.
+(see the first and fourth examples at the end of the article)
 
-## Implementation Rationale
-Two roads may intersect at dramatically different angles (see examples below), yet intersection angles sometimes fail to accurately represent how vehicles, pedestrians, or other transportation modes will position themselves before crossing. The geometric configuration is determined by traffic organization design and engineering specifications.
+### Reasons for Introduction
 
-## Value Specifications
+Two roads can intersect at different angles (see examples below), but the intersection angles sometimes do not reflect how cars, pedestrians and other road users will stop before this intersection, that is, how stop lines or conflict zone boundaries are located.
+The actual shape of the junction is determined by the traffic organization design, that is, ultimately — by the designer's imagination. In such cases, it is impossible to calculate the junction shape and it must be specified explicitly.
 
-### rectangle
-Stop lines of conflicting paths are positioned approximately 90 degrees relative to each other. Stop line points for each lane are positioned perpendicular to the centerline. A single common stop line serves all lanes (Examples 1, 4, 5).
+### Values
 
-### oblique
-Stop lines of conflicting paths are positioned at angles significantly less than 90 degrees (approximately 30-70 degrees). Stop line points for each lane are positioned parallel to the conflicting path. A single common stop line serves all lanes (Examples 2, 4, 5).
+- rectangle - stop lines of conflicting paths are located at approximately right angles to each other.
+Stop line points for each `lanes` are laid out perpendicular to the centerline.
+There is one stop line, a common line for all lanes (figures 1,4,5).
 
-### staggered
-An intermediate configuration between rectangle and oblique geometries. Intersection angles may vary, with the primary distinction being individual stop lines for each lane positioned at varying distances from the node (Examples 3, 5).
+- oblique - stop lines of conflicting paths are at an angle significantly different from 90 degrees, usually from 30 to 70 degrees.
+Stop line points for each `lanes` are laid out parallel to the path that conflicts with this way.
+There is one stop line, a common line for all lanes (figures 2,4,5).
 
-## Implementation Examples
+- staggered - in this case, the intersection angle of ways can be any; the fundamental difference
+is that each lane has its own separate stop line at different distances from the node (figure 3,5).
 
-| Example 1 | Example 2 |
-|:----------|:----------|
-|![Rectangle Junction](./../ru/img/junction:shape-img2.png)|![Oblique Junction](./../ru/img/junction:shape-img4.png)|
-|Despite the pedestrian crossing's angular approach to the street, yellow nodes utilize `junction:shape = rectangle`. The angle between stop lines and zebra stripes approximates 90 degrees.|Yellow nodes utilize `junction:shape = oblique` as stop lines are drawn parallel (or nearly parallel) to the intersecting roadway.|
+### Examples
 
-| Example 3 | Example 4 |
-|:----------|:----------|
-|![Staggered Junction](./../ru/img/junction:shape-img5.png)|![Comparison Junction](./../ru/img/junction:shape-img7.png)|
-|Most pedestrian crossing intersection points utilize `staggered` configuration due to stop lines positioned at varying distances from crossings. Distance regulation employs [junction:radius](./node.tags.junction:radius.md) with `:lanes`, `:start,:end`, and `:forward,:backward` suffixes for bidirectional ways.|Excellent single-location example demonstrating clear distinction between `junction:shape = oblique` and `junction:shape = rectangle` configurations.|
+| 1 | 2 | 
+| :------- | :------ |
+| ![image info](../ru/img/junction:shape-img2.png) | ![image info](../ru/img/junction:shape-img4.png) | 
+| Despite the fact that the pedestrian crossing goes at an angle to the street, in the yellow points the tag value will be `junction:shape = rectangle`. The angle between the stop line and the zebra stripes is approximately 90 degrees. | In the yellow points, the tag value will be `junction:shape = oblique`, since the stop lines are drawn parallel (or almost) to the intersected road, and the intersection angle significantly differs from perpendicular. | 
 
-| Example 5 | Example 6 |
-|:----------|:----------|
-|![Mixed Junction](./../ru/img/junction:shape-img3.png)||
-|Yellow nodes utilize `junction:shape = rectangle` while red nodes employ `junction:shape = oblique` or `junction:shape = staggered`||
+| 3 | 4 |
+| :------- | :------ |
+| ![image info](../ru/img/junction:shape-img5.png) | ![image info](../ru/img/junction:shape-img7.png) | 
+| In this case, for most intersection points with pedestrian crossings, the value `staggered` can be used, since stop lines go at different distances from the pedestrian crossing. The distance itself is regulated by [junction:radius](./node.tags.junction:radius.md) using suffixes `:lanes`, `:start,:end` and `:forward,:backward` for bidirectional ways. | An excellent example in one place where the difference between `junction:shape = oblique` and `junction:shape = rectangle` is obvious. | 
 
-## Professional Application Context
+| 5 | 6 |
+| :------- | :------ |
+| ![image info](../ru/img/junction:shape-img3.png) | |
+| In the yellow points, the tag value will be `junction:shape = rectangle`, in the red one the values `junction:shape = oblique` and `junction:shape = staggered` are used | | 
 
-While mapping pedestrian crossings and roadways using only centerline ways, this tag remains unnecessary. However, transition to detailed visualization or areal object representation reflecting real-world appearance (zebra crossings, stop lines, and their spatial relationships) makes this tag essential. Explicit specification becomes the only method to distinguish between otherwise ambiguous configurations (see Examples 1 and 4).
+### Recommended Articles
 
-## Technical Integration
-
-The `junction:shape` tag provides critical geometric information for advanced intersection modeling systems, enabling:
-
-- **Precise Stop Line Positioning**: Accurate placement based on intersection geometry
-- **Conflict Zone Definition**: Proper spatial relationship modeling between transportation modes  
-- **Rendering Optimization**: Enhanced visual representation of complex intersection configurations
-- **Traffic Engineering Compliance**: Alignment with professional traffic design standards
-
-This tag represents a fundamental component in the evolution from simplified centerline mapping to comprehensive intersection modeling that accurately reflects real-world infrastructure geometry and operational characteristics.
+- [junction:radius](./node.tags.junction:radius.md)
+- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)

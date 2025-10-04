@@ -1,4 +1,4 @@
-# junction:cluster:radius - Tag for Defining Maximum Influence Radius of Intersections on Surrounding Objects
+# junction:cluster:radius — Tag for Defining Maximum Influence Radius of Intersections on Surrounding Objects
 
 The `junction:cluster:radius` tag establishes the maximum possible radius of influence or relationship that an intersection exerts on surrounding infrastructure objects, enabling sophisticated intersection grouping and functional zone management.
 

@@ -1,8 +1,8 @@
-# `junction:cluster:radius` — A Tag for the Functional Area of a Junction
+# junction:cluster:radius — tag for the functional zone of an intersection
 
-The functional area of a junction is a geometric figure; objects located inside it are subject to the influence of this junction or influence it themselves.
-Within this zone, other objects (parking, crossings, stop lines, etc.) may be displayed or interpreted differently than in the absence of this junction.
-To some extent, this concept correlates with the concept of the functional area of an intersection, but for a simple junction.
+The functional zone of an intersection is a geometric figure within which objects are subject to the influence of a given intersection or themselves influence it.
+In this zone, other objects (parking lots, crossings, stop lines, and so on) may be displayed or interpreted differently than in the absence of this intersection.
+To some extent, this concept relates to the concept of the functional zone of a junction, but for the simplest intersection.
 
 ### Syntax
 ```
@@ -11,105 +11,113 @@ node.tags {
 }
 ```
 
-### Usage
+### Application
 
-This tag is used for objects of the `node` type that represent a junction.
-The tag specifies the radius of a circle into which the functional area for this junction can be inscribed.
+This tag applies to objects of type `node` that are intersections.
+The tag indicates the radius of a circle into which the functional zone for a given intersection can be inscribed.
 
-### Advantages of This Tag
+### Advantages of this tag
 
-The main motivation for introducing this tag was to enable the grouping of nodes of adjacent junctions into the overarching concept of an **"Intersection"**.
+The main motivation for introducing this tag was to provide the ability to group nodes of neighboring intersections into the generalizing
+concept of **"Junction"**.
 
-This goal can be achieved by various approaches:
+This goal can be achieved through various approaches:
 
-1.  Relation: `type:intersection, members[node1,...,nodeN, way1,..., wayM]`
-2.  A node attribute that serves as the grouping key (cluster name or identifier) `junction:cluster = name or id`
-3.  A radius which, when circles are overlapped (union), produces a common polygon for a certain set of nodes `junction:cluster:radius = 5`
+1. Relation: `type:intersection, members[node1,...,nodeN, way1,..., wayM]`
+2. An attribute of a node that serves as a generalization key (cluster name-identifier) `junction:cluster = name or id`
+3. A radius that, when overlaying (union) circles, will give a common polygon for a certain set of nodes `junction:cluster = 5`
 
-All these methods solve the same task: **controlled clustering of junction nodes** into a more complex data structure.
+All these methods solve one task - **managed clustering of intersection nodes** into a more complex data structure.
 
-The pros and cons of the first two approaches are obvious: the need to use a relation, maintain referential integrity, and generate tags.
+The pros and cons of the first two approaches are obvious: the need to use relations, maintain referential integrity, and generate tags.
 
 Let's consider the third method.
 
-*   Very geometric, reflects the areal/linear characteristics of the junction
-*   Does not require maintaining referential integrity (as in 1) or uniqueness control (as in 2)
-*   Allows finding dependencies or correlations with other node properties (number of lanes)
-*   Simply a numerical value in meters
-*   Formally, no new object of the "intersection" type is created, but it can always be obtained by a simple buffer + union operation
-*   Corresponds to Occam's razor principle - we do not multiply entities unnecessarily
+* Very geometric, reflects the area/linear characteristics of the intersection
+* Does not require support for referential integrity (as in 1) and uniqueness control (as in 2)
+* It's possible to find a dependency or correlation with other node properties (number of lanes)
+* Simply a numerical value in meters
+* Formally, no new object of type junction appears, but it can always be obtained by the simplest operation of buffer + union
+* Corresponds to Occam's razor principle - we don't create new entities without necessity
 
-Formally, the concept of an **Intersection** can be expressed as follows:
-An intersection is a set of nodes (`node junction=yes|...`), connected by edges (`way`), where traffic control means (road markings, signs, other traffic control elements) do **NOT** provide for the stopping of vehicles.
+Formally, the concept of **Junction** can be expressed as follows:
+A Junction is a set of nodes (`node junction=yes|...`) connected to each other by edges (`way`), on which
+traffic control means (markings, signs, other traffic control elements) do **NOT** provide for stopping vehicles.
 
-In simple terms, an intersection can be considered a set of points and arcs where there are no specially organized stop lines inside.
-It can also be said that an intersection is an areal figure (polygon) inside which there exists an indivisible zone of conflict between vehicles and pedestrians.
+In simple terms, a junction can be considered such a set of points and arcs where there are no specially organized stop lines inside.
+It can also be said that a junction is an area figure (polygon) within which there is an indivisible conflict zone for vehicles and pedestrians.
 
-Consider an example of a complex intersection with 4 separate conflict zones.
-In nodes where `junction:cluster:radius` is not explicitly specified, it defaults to 12 meters.
-On the left half are the nodes and ways; on the right half is the intersection model, where the radius of each node is represented as a hexagon.
-All hexagons are grouped based on the union criterion.
+Consider an example of a complex junction where there are 4 separate conflict zones.
+In nodes where `junction:cluster:radius:` is not explicitly specified, it equals 12 meters.
+On the left half are nodes and ways, on the right half is a junction model where the radius of each node is displayed as a hexagon.
+All hexagons are grouped according to the overlay (union) criterion.
 
 ![image info](../ru/img/junction:cluster:radius-img1.png)
 
-As a result, with this combination of `junction:cluster:radius` values, we get 4 "intersections", each with its own conflict zone. This means that in reality, each resulting "intersection" *should* have its own separate stop line for conflict resolution.
+As a result, with such a combination of `junction:cluster:radius:` values, we get 4 "junctions", each
+of which has its own conflict zone. This means that in reality, for each resulting "junction" there *must* be its own separate stop line to resolve conflicts.
 
 ![image info](../ru/img/junction:cluster:radius-img4.png)
 
-The following illustration confirms that several junctions can be combined into a single object. Each junction is marked with a blue circle (see the tag [junction:radius](./node.tags.junction:radius.md)), with each cluster containing 3-4 junctions of ways (vehicle and pedestrian, with different radii).
+The following illustration confirms that several intersections can be combined into a single object. Each intersection is marked with a blue circle,
+(see tag [junction:radius](./node.tags.junction:radius.md)), where each cluster includes 3-4 way intersections (vehicle and pedestrian, with different radii).
 
 ![image info](../ru/img/junction:cluster:radius-img5.png)
 
-Let's increase the `junction:cluster:radius` values from twelve to thirty-two meters.
-All junctions merged into one intersection in the shape of a horseshoe. With this radius combination, this intersection resembles a roundabout (semi-roundabout), inside which road users are not allowed to stop.
-However, this radius configuration is artificially incorrect because the pedestrian crossings still remain.
+Let's increase the `junction:cluster:radius:` values from twelve to thirty-two meters.
+All intersections merged into one junction in the shape of a horseshoe. With such a combination of radii, this junction
+resembles a ring (semi-ring), inside which road users do not have the right to stop.
+However, this variant of radius arrangement is artificially incorrect, since pedestrian crossings still remain.
 
 ![image info](../ru/img/junction:cluster:radius-img3.png)
 
 ---
 
-## Using the Node Attribute – Pinpoint Control of Clustering
+## Using the node attribute — point control of clustering
 
-In addition to combining junctions into a single intersection, this tag is used to separate junctions that are located close enough but are not part of the same intersection. These are rare configurations, but since they occur, they need to be mapped accurately.
+In addition to connecting intersections into a single junction, this tag is used to separate intersections that are located close enough but are not one junction. These are rare configurations, but since they occur, they need to be mapped accurately.
 
-Let's compare explicitly specifying such a configuration using the `cluster:radius` tag with alternative approaches, for example, using a hypothetical relation.
+Let's compare the explicit indication of such a configuration using the cluster:radius tag and alternative approaches. For example, with the use of a proposed relation.
 
-Let's look at a fairly large section of a typical map. Yellow dots mark nodes where the presence of traffic light regulation is indicated in one way or another: `highway: traffic_signals | crossing: traffic_signals`
+Let's look at a fairly large section of a typical map. Yellow dots indicate nodes where traffic signal regulation is indicated in one way or another. `highway: traffic_signals | crossing: traffic_signals`
 
 ![image info](../ru/img/junction:cluster:radius-img7.png)
 
-Looking from a "bird's-eye view" at how junctions are typically grouped (using traffic lights as an example), it's clear that distinct clusters form, and we could achieve this automatically in one way or another.
+If you look from a "bird's eye view" at how intersections are grouped in most cases (using traffic lights as an example),
+it's clear that distinct clusters are formed, and in one way or another we could do this automatically.
 
-But if we introduce a relation explicitly, then **every** intersection, despite its typicality, would have to be processed manually, maintaining referential integrity and other aspects.
+But if we introduce relations explicitly, then **every** junction, despite its typicality, will have to be processed manually,
+monitoring referential integrity and other aspects.
 
-## Example of Using the Tag in Combination with Other `junction:*` Tags
+## Example of tag application in conjunction with other junction:* tags
 
 ![image info](../ru/img/junction:cluster:radius-img8.png)
 
-At first glance, this appears to be a trivial T-shaped intersection, but this impression is deceptive.
+At first glance, we have a banal T-shaped junction, but this impression is deceptive.
 
-In reality, it is not a single intersection but a combination of three closely located junctions:
-1.  A controlled pedestrian crossing - marked in blue,
-2.  An uncontrolled pedestrian crossing - marked in grey,
-3.  An uncontrolled vehicle junction - marked in white.
+In reality, this is not a single junction, but a combination of three closely located intersections:
+1. Controlled pedestrian crossing — marked in blue,
+2. Uncontrolled pedestrian crossing — marked in gray,
+3. Uncontrolled intersection - marked in white.
 
-Vehicles moving north on the main road have the right to turn left onto the adjacent road or make a U-turn. At the same time, only a right turn is allowed from the minor road. Therefore, this junction cannot be considered an uncontrolled intersection. Such an assumption would lead to incorrect road markings and faulty navigation services.
-Furthermore, the junction is located close to the controlled pedestrian crossing. If not separated, the entire area would be considered controlled, which would again lead to inaccurate map markings, and the intersection data would become unusable for navigation and traffic management automation purposes.
+Vehicles moving north along the main road have the right to turn left onto the adjacent road or make a U-turn. At the same time, from the side of the secondary road, only a right turn is allowed. Thus, this intersection cannot be considered an uncontrolled junction. Such an assumption would lead to marking changes and incorrect operation of navigation services.
+At the same time, the intersection is located close to the controlled pedestrian crossing. If it is not separated, the entire zone will be considered controlled, which again will lead to inaccurate markings on the map, and the junction data will become inapplicable for navigation purposes and traffic control automation.
 
-Using OSMPIE tags for the points in the white area elegantly solves this task:
+Using OSMPIE tags for points in the white area elegantly solves this problem:
 
 ~~~
-   junction = no  - explicitly marks this as not being a full intersection (marking will correspond to regular linear road markings)
-   junction:cluster:radius = 1  - so it does not merge with the other two clusters (blue and grey)
-   junction:radius = 7~8   - meters, because it is still a junction and has geometric characteristics
+   junction = no  - explicitly not a junction (marking will correspond to regular linear marking on roads)
+   junction:cluster:radius = 1  - so that it doesn't merge with the other two clusters (blue and gray)
+   junction:radius = 7~8   - meters, since this is still an intersection and it has geometric characteristics
 ~~~
 
-Note that for the node of the junction in the grey area, a small clustering radius must also be explicitly set to prevent it from merging with the blue node, since in reality these are two independent pedestrian crossings, and of different types (controlled and uncontrolled).
+Note that for the intersection node in the gray area, it's also necessary to explicitly set a small clustering radius so that it doesn't merge with the blue node, since in reality these are two independent pedestrian crossings, moreover of different types (controlled and uncontrolled).
 
 ## Conclusions
-- Using the `cluster:radius` tag for point-controlled clustering of junction nodes into intersections significantly reduces the labor required for correct intersection mapping. We apply the tag explicitly and only in exceptional cases.
-- Combinations with other tags (e.g., `junction:radius`, `junction = yes|no`, etc.) allow for accurate mapping of any combination of objects found on real roads.
-- This creates or preserves semantics, as the attributes during mapping accurately describe the functions of a road object or indicate its qualities. Thus, we follow the main goal of mapping: to reliably reflect all necessary information about reality in the model.
+ - Application of the cluster:radius tag for point-controlled clustering of intersection nodes into junctions significantly reduces labor costs for
+ correct junction mapping. At the same time, we apply the tag explicitly and only in exceptional cases.
+ - Combinations with other tags (for example, junction:radius, junction = yes|no| and others) allow accurate mapping of any combinations of objects encountered on real roads.
+ - At the same time, semantics are created or preserved, since attributes in mapping accurately describe the functions of a road object or indicate its qualities. Thus, we follow the main goal of mapping: to accurately reflect in the model all the necessary information about reality.
 
 ## Recommended Articles
 
