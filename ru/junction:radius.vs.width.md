@@ -150,6 +150,6 @@ and add the junction=yes tag.
 
 ## Рекомендуемые статьи
 
--   Подробная статью про [junction:radius](./node.tags.junction:radius.md).
--   Подробнее про [Key:diameter](https://wiki.openstreetmap.org/wiki/Key:diameter).
--   Пояснения про [diameter=*](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree#Additional_tags).
+- [Тег junction:radius](./node.tags.junction:radius.md).
+- Подробнее про [Key:diameter](https://wiki.openstreetmap.org/wiki/Key:diameter).
+- Пояснения про [diameter=*](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree#Additional_tags).
