@@ -116,5 +116,5 @@ This tag provides a powerful tool for automated intersection analysis and traffi
 
 - [junction:radius](./node.tags.junction:radius.md)
 - [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
-- [On similarity of width and junction:radius](./junction:radius.vs.width.md)
-- [Crossing walks rendering issues](./examples/crossing-error.md)
+- [On the similarity of width and junction:radius](./junction:radius.vs.width.md)
+- [Crosswalks rendering issues](./examples/crossing-error.md)
