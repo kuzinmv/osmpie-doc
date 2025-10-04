@@ -111,3 +111,10 @@ This radius configuration is artificially incorrect since pedestrian crossings r
 - Validate that resulting clusters align with actual traffic engineering practice
 
 This tag provides a powerful tool for automated intersection analysis and traffic modeling while maintaining geometric accuracy and computational efficiency.
+
+## Recommended articles
+
+- [junction:radius](./node.tags.junction:radius.md)
+- [junction:cluster:radius](./node.tags.junction:cluster:radius.md)
+- [On similarity of width and junction:radius](./junction:radius.vs.width.md)
+- [Crossing walks rendering issues](./examples/crossing-error.md)
