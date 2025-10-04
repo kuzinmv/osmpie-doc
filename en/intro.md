@@ -176,11 +176,18 @@ The OSMPIE renderer functions as a sophisticated visual validator. If the render
 
 The first public release of OSMPIE contains non-customizable road marking generation, which provides maximum coverage but may not reflect specific local marking conventions, such as parking spaces or pedestrian crossings. The marking renderer works for indicating object existence, lane presence, and dimensional characteristics. We prioritize rapid resolution of these limitations in upcoming future updates.
 
+## Rights and Obligations of OSMPIE Users
+
+When you use OSMPIE, you're working with data from OpenStreetMap (OSM), which means you're part of a sharing community. Here's what matters most: any data or results you create using OSMPIE don't belong to you alone—they must be shared with everyone under the same open terms. You're also required to give credit by clearly marking your work as produced using OSMPIE and OSM. Think of it as a "share-alike" arrangement: you benefit from the community's data, and in return, your contributions flow back to the community. 
+
+For complete details visit [Copyright and License](./odbl.md)
+
 ## Conclusion
 
 OSMPIE represents a paradigm shift toward professional junction modeling in the OpenStreetMap ecosystem, filling the gap between simplified linear representations and the complex reality of modern road infrastructure. Through systematic application of extended tagging schemas and sophisticated rendering algorithms, OSMPIE enables cartographers to create accurate, visually compelling representations that serve both aesthetic and functional requirements.
 
 ## Recommended Articles
 
-1. [Getting Started with OSMPIE](./getting-started.md)
-2. [Workflow, Window and Form Descriptions](./workflow.and.forms.md)
+- [Getting Started with OSMPIE](./getting-started.md)-
+- [Workflow, Window and Form Descriptions](./workflow.and.forms.md)
+- [Copyright and License](./odbl.md)
