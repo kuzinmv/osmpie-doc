@@ -512,7 +512,10 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 
-const attribution = new ol.control.Attribution({collapsible: false,});
+const attribution = new ol.control.Attribution({collapsible: false,  });
+const attributions = '<a href="https://carto.com/attribution" target="_blank">&copy; Carto</a> '
+    + '<a href="https://openstreetmap.org" target="_blank">&copy; OpenStreetMap</a>';
+
 const view = new ol.View({
   center: ol.proj.fromLonLat([ 73.387596 ,54.973088]),
   zoom: 19
@@ -524,6 +527,7 @@ const map1 = new ol.Map({
 
     new ol.layer.Tile({
       source: new ol.source.XYZ({
+        attributions: attributions,
         url: 'https://d.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
         maxZoom: 22,
         minZoom: 12,
@@ -544,6 +548,7 @@ const map2 = new ol.Map({
 
     new ol.layer.Tile({
       source: new ol.source.XYZ({
+        attributions: attributions,
         url: 'https://d.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
         maxZoom: 22,
         minZoom: 12,

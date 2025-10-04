@@ -76,6 +76,22 @@ h6 {
   padding-left: calc(var(--bs-gutter-x)* 1.5);
 }
 
+@media (max-width: 767.98px) {
+  .container {
+    padding-right: calc(var(--bs-gutter-x)* 0.5);
+    padding-left: calc(var(--bs-gutter-x)* 0.5);
+  }
+}
+
+.profit-padding {
+  padding: 3rem ;
+}
+
+@media (max-width: 767.98px) {
+  .profit-padding {
+    padding: 1rem ;
+  }
+}
 .section {
   padding: 40px 0;
   scroll-margin-top: 30px;
@@ -279,6 +295,16 @@ h6 {
           transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.navbar-brand {
+  width: 390px;
+}
+
+@media (max-width: 1200px) {
+  .navbar-brand {
+    width: auto;
+  }
+}
+
 .fbs__net-navbar {
   position: absolute;
   top: 0;
@@ -309,6 +335,7 @@ h6 {
 .fbs__net-navbar .navbar-brand .logo.dark {
   display: inline;
 }
+
 .fbs__net-navbar .navbar-brand .logo.light {
   display: inline;
 }
@@ -680,7 +707,10 @@ h6 {
 
 .fbs__net-navbar.dark a {
   color: var(--inverse-color) !important;
+  /*font-size: 28px;*/
+  text-decoration: none;
 }
+
 .fbs__net-navbar.dark a:hover {
   color: var(--inverse-color);
 }
@@ -695,11 +725,11 @@ h6 {
   color: var(--inverse-color) !important;
 }
 .fbs__net-navbar .offcanvas-header .offcanvas-header-logo .logo-link .logo.dark {
-  display: block;
+  display: inline;
 }
 
 .fbs__net-navbar .offcanvas-header .offcanvas-header-logo .logo-link .logo.light {
-  display: none;
+  display: inline;
 }
 
 
@@ -779,6 +809,7 @@ h6 {
 .hero__v6 {
   padding: 8rem 0 1rem 0 !important;
 }
+
 .hero__v6 .hero-subtitle {
   background: color-mix(in srgb, var(--bs-secondary), transparent 10%);
   color: var(--bs-primary);
@@ -808,6 +839,13 @@ h6 {
     font-size: 30px;
   }
 }
+
+@media (max-width: 991.98px) {
+  .hero__v6 .hero-subtitle {
+    display: none;
+  }
+}
+
 .hero__v6 .logos .logos-title {
   font-size: 12px;
   letter-spacing: 1px;
@@ -1241,11 +1279,11 @@ h6 {
 }
 .footer a {
   color: var(--nav-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 .footer a:hover {
   color: var(--nav-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 .footer a .badge {
   -webkit-transition: 0.3s all ease;
@@ -1380,4 +1418,9 @@ h6 {
 
 .price-table a, .pricing-features a {
   color: white;
+}
+
+.offcanvas {
+  --bs-offcanvas-padding-x: 1.5rem;
+  --bs-offcanvas-padding-y: 0.1rem;
 }
