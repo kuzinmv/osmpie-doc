@@ -38,9 +38,9 @@ We would be happy if our ideas are discussed, improved, or accepted by the commu
 
 ### 3. What are the unique challenges involved in mapping intersections in OpenStreetMap?
 
-**Lack of a Unified Model.** OSM lacks a coherent, unambiguous, and widely adopted standard for representing intersections, creating inconsistency across the database.
+**Lack of a Unified Model.** OSM lacks a coherent, unambiguous, and widely adopted standard for representing intersections.
 
-**Geometric Accuracy vs. Simplification.** Intersections aren't simply points where roads cross—they're areas with boundaries where roads merge, split, curve, and branch into multiple lanes around traffic islands. The challenge is conveying this complexity accurately without making the map prohibitively difficult to edit and use, especially when considering elements like `placement` and `radius`.
+**Geometric Accuracy vs. Simplification.** An intersection is not just a point where road lines cross. It is an area with its own boundaries where roads merge, split, have curves, traffic islands, and multiple lanes. How to accurately convey this form without making the map impossibly difficult to edit and use?.
 
 **Semantic Model (Logical Structure).** Beyond visual representation, OSM must capture how intersections function: which turns are allowed, where crosswalks exist, how traffic lights control flow. Developing tags and rules that accurately describe this logic so navigation programs and mapping services can interpret it correctly remains the most challenging aspect.
 
