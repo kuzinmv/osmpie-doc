@@ -38,7 +38,7 @@ OSMPIE changes many concepts:
 
 We have been using this editor for our own needs for several years and have created models of cities or their large parts for transport analytics. [This is what it looked like before](https://photos.google.com/album/AF1QipPJoOPiKseqQQ8L6ZG9jJXSN5HAqgKpWxDlqacJ).
 
-![img-info](../../ru/posts/img2.png)
+![img-info](../../ru/posts/img1.png)
 
 In 2025, we decided to offer it to the community, as we thought there wasn't much work left - improve the editing process, change the authorization and the place for saving changesets to the common OSM database. Ha...
 
