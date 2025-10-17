@@ -60,7 +60,7 @@ We would be happy if our ideas are discussed, improved, or accepted by the commu
 
 ### 4. What steps could the OpenStreetMap community take to improve mapping of intersections specifically and roads generally?
 
-The answer may seem banal, but the maximum effect will come from the correct placement of the `lanes:` and `turn:lanes` tags. This alone will bring significant improvements. Next, of course, `placement` is important - in cities at intersections and interchanges. Pedestrian crossings should be drawn as separate `ways` (one "zebra" - one `way`), not as one `way` around the entire intersection. And this doesn't require special editors.
+The answer may seem banal, but the maximum effect will come from the correct placement of the `lanes:` and `turn:lanes` tags. This alone will bring significant improvements. Next, of course, [`placement`](https://wiki.openstreetmap.org/wiki/Proposal:Placement#Simple_transition_from_three_to_two_lanes) is important - in cities at intersections and interchanges. Pedestrian crossings should be drawn as separate `ways` (one "zebra" - one `way`), not as one `way` around the entire intersection. And this doesn't require special editors.
 
 Mappers in many cities create excellent roads. When I open them in OSMPIE, I just say: "Perfection! Nothing to correct, everything is in its place." Their work and experience deserve attention and respect. They do this "blindly," without AI prompts or detailed renders, using only their imagination and internal vision.
 
