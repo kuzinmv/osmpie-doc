@@ -159,7 +159,7 @@ For the top road, the implementation uses `way`[`placement=transition`] + `relat
 
 ## Conclusions
 
-*   `Placement=transition` is a [hidden `junction`](https://wiki.openstreetmap.org/wiki/File:Lane_Placement_3.png) (segment 4), consisting simultaneously of 2 `node`s (start and end). It is a genius crutch to make it possible to indicate length (size) using 2 coordinates, but it raises questions and ambiguities about the connectivity of such `way`s.
+*   `Placement=transition` is a [hidden `junction`](https://wiki.openstreetmap.org/wiki/File:Lane_Placement_3.png) (segment 4), consisting simultaneously of 2 `node`s (start and end). This is an ingenious workaround to allow for the specification of length (size) using two coordinates, but it raises questions and ambiguities about the connectivity of such `ways` and the applicability of the `lanes` tag and the `*:lanes:*` scheme to them, as in the bus lane example above.
 *   `connect:lanes` and `junction:radius` are an ideal addition to the existing tagging scheme for connectivity and dimensionality of intersections (`way`[`placement=transition`] + `relation`[`type=connectivity`]), simplifying manual entry and consistency. They explicitly mark the linear dimensions of the intersection with attributes instead of implicitly. And without denying or contradicting the existing system for indicating connectivity.
 *   `relation[type=connectivity]` is a good tool as long as via == `node`, beyond that there is again too much uncertainty.
 *   `junction` should be considered starting from the connection of 2 `way`s.
