@@ -481,6 +481,21 @@
       "object_types": ["node"]
     },
     {
+      "key": "connect:lanes",
+      "doc_url": "https://github.com/kuzinmv/osmpie-doc/blob/master/en/way.tags.connect:lanes.md",
+      "object_types": ["way"]
+    },
+    {
+      "key": "connect:lanes:forward",
+      "doc_url": "https://github.com/kuzinmv/osmpie-doc/blob/master/en/way.tags.connect:lanes.md",
+      "object_types": ["way"]
+    },
+    {
+      "key": "connect:lanes:backward",
+      "doc_url": "https://github.com/kuzinmv/osmpie-doc/blob/master/en/way.tags.connect:lanes.md",
+      "object_types": ["way"]
+    },
+    {
       "key": "crossing:markings",
       "value": "zebra",
       "object_types": ["way"]
