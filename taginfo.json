@@ -482,16 +482,19 @@
     },
     {
       "key": "connect:lanes",
+      "description": "OSMPie new tag for lanes connectivity proposal",
       "doc_url": "https://github.com/kuzinmv/osmpie-doc/blob/master/en/way.tags.connect:lanes.md",
       "object_types": ["way"]
     },
     {
       "key": "connect:lanes:forward",
+      "description": "OSMPie new tag for lanes connectivity proposal",
       "doc_url": "https://github.com/kuzinmv/osmpie-doc/blob/master/en/way.tags.connect:lanes.md",
       "object_types": ["way"]
     },
     {
       "key": "connect:lanes:backward",
+      "description": "OSMPie new tag for lanes connectivity proposal",
       "doc_url": "https://github.com/kuzinmv/osmpie-doc/blob/master/en/way.tags.connect:lanes.md",
       "object_types": ["way"]
     },
